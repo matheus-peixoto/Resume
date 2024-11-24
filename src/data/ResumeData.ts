@@ -5,7 +5,7 @@ export const RESUME_DATA = {
   initials: "JD",
   location: "Somewhere, World, UTC",
   locationLink: "https://example.com/location",
-  about:
+  shortDescription:
     "Passionate developer with a focus on building scalable, user-centric applications.",
   summary:
     "Experienced Full Stack Developer with expertise in modern web technologies. Skilled in leading teams and delivering robust software solutions.",
