@@ -39,10 +39,10 @@ export function MainInfo() {
                     ) : null
                 }
                 {
-                    RESUME.contact.social.map(
-                        s => (
-                            <a key={s.name} href={s.url} target="_blank" className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
-                                <s.icon />
+                    RESUME.contact.socials.map(
+                        social => (
+                            <a key={social.name} href={social.url} target="_blank" className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
+                                <social.icon />
                             </a>
                         )
                     )
@@ -69,9 +69,9 @@ export function MainInfo() {
                 }
 
                 {
-                    RESUME.contact.social.map(
-                        s => (
-                            <a key={s.name} className="text-sm font-bold" href={s.url}>{s.url}</a>
+                    RESUME.contact.socials.map(
+                        social => (
+                            <a key={social.name} className="text-sm font-bold" href={social.url}>{social.url}</a>
                         )
                     )
                 }

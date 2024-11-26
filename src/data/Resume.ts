@@ -15,7 +15,7 @@ export const RESUME = {
   contact: {
     email: "matheuspeixoto100@gmail.com",
     phone: "+55 (11) 99280-6535",
-    social: [
+    socials: [
       {
         name: "Linkedin",
         url: "https://www.linkedin.com/in/matheus-peixoto-silva/",
@@ -28,7 +28,7 @@ export const RESUME = {
       }
     ],
   },
-  education: [
+  educations: [
     {
       school: "Fictional University",
       degree: "Bachelor's Degree in Computer Science",
@@ -36,28 +36,30 @@ export const RESUME = {
       end: "2014",
     },
   ],
-  work: [
+  jobs: [
     {
       company: "TechCorp",
       link: "https://example.com/techcorp",
-      badges: ["Remote"],
+      workModel: ["Remote"],
       title: "Software Engineer",
       logo: "https://example.com/logos/techcorp.png",
       start: "2022",
       end: null,
-      description:
-        "Developing cutting-edge solutions using modern tech stacks.",
+      descriptionParagraphs: [
+        "Developing cutting-edge solutions using modern tech stacks."
+      ]
     },
     {
       company: "Innovate Inc.",
       link: "https://example.com/innovate",
-      badges: ["Remote"],
+      workModel: ["Remote"],
       title: "Full Stack Developer",
       logo: "https://example.com/logos/innovate.png",
       start: "2018",
       end: "2022",
-      description:
-        "Led full-stack development projects and optimized performance.",
+      descriptionParagraphs: [
+        "Led full-stack development projects and optimized performance."
+      ]
     },
   ],
   skills: [
