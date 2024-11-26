@@ -9,7 +9,7 @@ export const RESUME_DATA = {
   shortDescription:
     "Desenvolvedor na MegaMamute focado na excelência técnica e evolução contínua do negócio.",
   summary:
-    "Experienced Full Stack Developer with expertise in modern web technologies. Skilled in leading teams and delivering robust software solutions.",
+    "Como analista e desenvolvedor com 4 anos de experiência, especializo-me em transformar ideias em soluções robustas. Minha atuação é voltada para .NET utilizando C# e ASP.NET para criar aplicações confiáveis e escaláveis. Sou apaixonado por inovação, automotivado e valorizo tanto o trabalho em equipe quanto o aprendizado constante.",
   ownerImgUrl: "https://avatars.githubusercontent.com/u/58491359",
   personalWebsiteUrl: "https://example.com",
   contact: {
