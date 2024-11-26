@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { RESUME_DATA } from "@/data/ResumeData";
+import { RESUME } from "@/data/Resume";
 import { MainInfo } from "./sections";
 
 export const metadata: Metadata = {
-  title: RESUME_DATA.name + ' - CV',
-  description: RESUME_DATA.summary
+  title: RESUME.name + ' - CV',
+  description: RESUME.summary
 };
 
 export default function Page() {
@@ -16,28 +16,28 @@ export default function Page() {
         <section>
           <h2 className="text-xl font-bold text-black">Sobre</h2>
           <p className="text-pretty text-sm print:text-[12px] my-2">
-            {RESUME_DATA.summary}
+            {RESUME.summary}
           </p>
         </section>
 
         <section>
           {/* Professional experience section */}
-          {RESUME_DATA.work.length}
+          {RESUME.work.length}
         </section>
 
         <section>
           {/* Education section */}
-          {RESUME_DATA.education.length}
+          {RESUME.education.length}
         </section>
 
         <section>
           {/* Skill section */}
-          {RESUME_DATA.skills.length}
+          {RESUME.skills.length}
         </section>
 
         <section>
           {/* Skill section */}
-          {RESUME_DATA.projects.length}
+          {RESUME.projects.length}
         </section>
       </section>
     </main>

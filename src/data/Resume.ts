@@ -1,7 +1,7 @@
 import { LinkedInIcon } from "@/component/icon";
 import { GitHubIcon } from "@/component/icon";
 
-export const RESUME_DATA = {
+export const RESUME = {
   name: "Matheus Peixoto Silva",
   initials: "JD",
   location: "São Paulo, SP, Brasil",
