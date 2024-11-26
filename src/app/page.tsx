@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { RESUME_DATA } from "@/data/ResumeData";
+import { MainInfo } from "./sections";
 
 export const metadata: Metadata = {
   title: RESUME_DATA.name + ' - CV',
@@ -10,12 +11,7 @@ export default function Page() {
   return (
     <main className="container mx-auto bg-blue-600 scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
       <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
-        <section>
-          {/* Main info section */}
-          {RESUME_DATA.name}
-          {RESUME_DATA.shortDescription}
-        </section>
-
+        <MainInfo />
         <section>
           {/* About section */}
           {RESUME_DATA.summary}
