@@ -14,7 +14,7 @@ export const RESUME = {
   personalWebsiteUrl: "https://example.com",
   contact: {
     email: "matheuspeixoto100@gmail.com",
-    phone: "+55 (11) 99280-6535",
+    phone: "+55 (11)99280-6535",
     socials: [
       {
         name: "Linkedin",
@@ -38,29 +38,31 @@ export const RESUME = {
   ],
   jobs: [
     {
-      company: "TechCorp",
-      link: "https://example.com/techcorp",
-      workModel: ["Remote"],
-      title: "Software Engineer",
-      logo: "https://example.com/logos/techcorp.png",
-      start: "2022",
+      company: "MegaMamute",
+      link: "https://www.megamamute.com.br/",
+      workModel: ["Remoto"],
+      title: "Analista Desenvolvedor",
+      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQG_JMRqGl1OLg/company-logo_200_200/company-logo_200_200/0/1648590192348/megamamutecombr_logo?e=1740614400&v=beta&t=nr43KDyspSkEWBwZglc7_OEmJh1_ll6-e66cJ_L75xc",
+      start: "Junho de 2021",
       end: null,
       descriptionParagraphs: [
-        "Developing cutting-edge solutions using modern tech stacks."
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa. Rerum ab quas aut dolorum in excepturi distinctio.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa. Rerum ab quas aut dolorum in excepturi distinctio.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa."
       ]
     },
     {
-      company: "Innovate Inc.",
+      company: "TechEleven.",
       link: "https://example.com/innovate",
-      workModel: ["Remote"],
-      title: "Full Stack Developer",
+      workModel: ["Presencial"],
+      title: "Desenvolvedor .Net",
       logo: "https://example.com/logos/innovate.png",
-      start: "2018",
-      end: "2022",
+      start: "Março de 2021",
+      end: "Junho de 2021",
       descriptionParagraphs: [
-        "Led full-stack development projects and optimized performance."
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa. Rerum ab quas aut dolorum in excepturi distinctio.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa. Rerum ab quas aut dolorum in excepturi distinctio.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam ea perferendis exercitationem enim quo, odio eos nihil sint amet eaque ipsa."
       ]
-    },
+    }
   ],
   skills: [
     "HTML",
