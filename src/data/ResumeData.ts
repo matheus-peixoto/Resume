@@ -1,29 +1,30 @@
-import { GitHubIcon, LinkedInIcon } from "@/component/icon";
+import { LinkedInIcon } from "@/component/icon";
+import { GitHubIcon } from "@/component/icon";
 
 export const RESUME_DATA = {
-  name: "John Doe",
+  name: "Matheus Peixoto Silva",
   initials: "JD",
-  location: "Somewhere, World, UTC",
+  location: "São Paulo, SP, Brasil",
   locationLink: "https://example.com/location",
   shortDescription:
-    "Passionate developer with a focus on building scalable, user-centric applications.",
+    "Desenvolvedor na MegaMamute focado na excelência técnica e evolução contínua do negócio.",
   summary:
     "Experienced Full Stack Developer with expertise in modern web technologies. Skilled in leading teams and delivering robust software solutions.",
-  avatarUrl: "https://example.com/avatar.png",
+  ownerImgUrl: "https://avatars.githubusercontent.com/u/58491359",
   personalWebsiteUrl: "https://example.com",
   contact: {
-    email: "john.doe@example.com",
-    tel: "+1234567890",
+    email: "matheuspeixoto100@gmail.com",
+    phone: "+55 (11) 99280-6535",
     social: [
       {
-        name: "GitHub",
-        url: "https://github.com/randomuser",
-        icon: GitHubIcon,
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/matheus-peixoto-silva/",
+        icon: LinkedInIcon,
       },
       {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/randomuser/",
-        icon: LinkedInIcon,
+        name: "GitHub",
+        url: "https://github.com/matheus-peixoto/",
+        icon: GitHubIcon,
       }
     ],
   },
