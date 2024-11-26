@@ -54,7 +54,7 @@ export function MainInfo() {
                 {
                     RESUME_DATA.contact.email
                     && (
-                        <a href={`mailto:${RESUME_DATA.contact.email}`} className="text-md font-bold">
+                        <a href={`mailto:${RESUME_DATA.contact.email}`} className="text-sm font-bold">
                             {RESUME_DATA.contact.email}
                         </a>
                     )
@@ -63,7 +63,7 @@ export function MainInfo() {
                 {
                     RESUME_DATA.contact.email
                     && (
-                        <a href={`tel:${RESUME_DATA.contact.phone}`} className="text-md font-bold">
+                        <a href={`tel:${RESUME_DATA.contact.phone}`} className="text-sm font-bold">
                             {RESUME_DATA.contact.phone}
                         </a>
                     )
@@ -72,7 +72,7 @@ export function MainInfo() {
                 {
                     RESUME_DATA.contact.social.map(
                         s => (
-                            <a key={s.name} className="text-md font-bold" href={s.url}>{s.url}</a>
+                            <a key={s.name} className="text-sm font-bold" href={s.url}>{s.url}</a>
                         )
                     )
                 }
