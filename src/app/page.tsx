@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container mx-auto bg-blue-600 scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+    <main className="font-mono container mx-auto overflow-auto p-4 text-gray-500 print:p-12 md:p-16">
       <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
         <MainInfo />
         <section>
