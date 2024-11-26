@@ -5,7 +5,7 @@ export const RESUME_DATA = {
   name: "Matheus Peixoto Silva",
   initials: "JD",
   location: "São Paulo, SP, Brasil",
-  locationLink: "https://example.com/location",
+  locationLink: "https://google.com/maps/?q=S%C3%A3o%20Paulo%2C%20S%C3%A3o%20Paulo%2C%20Brazil",
   shortDescription:
     "Desenvolvedor na MegaMamute focado na excelência técnica e evolução contínua do negócio.",
   summary:

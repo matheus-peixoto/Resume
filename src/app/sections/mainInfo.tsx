@@ -26,25 +26,24 @@ export function MainInfo() {
             <div className="flex gap-x-1 print:hidden">
                 {
                     RESUME_DATA.contact.email ? (
-                        <div className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md">
+                        <a href={`mailto:${RESUME_DATA.contact.email}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md transition duration-200 hover:bg-gray-100">
                             <LuMail size={16} />
-                        </div>
-
+                        </a>
                     ) : null
                 }
                 {
                     RESUME_DATA.contact.email ? (
-                        <div className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md">
+                        <a href={`tel:${RESUME_DATA.contact.phone}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
                             <LuPhone size={16} />
-                        </div>
+                        </a>
                     ) : null
                 }
                 {
                     RESUME_DATA.contact.social.map(
                         s => (
-                            <div key={s.name} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md">
+                            <a key={s.name} href={s.url} target="_blank" className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
                                 <s.icon />
-                            </div>
+                            </a>
                         )
                     )
                 }
