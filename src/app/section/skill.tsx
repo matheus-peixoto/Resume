@@ -9,9 +9,14 @@ export function Skills() {
             <div className="flex flex-wrap gap-1">
                 {
                     RESUME.skills.map((skill, index) => (
-                        <span key={index} className="rounded-md text-white bg-gray-700 text-xs py-1 px-2">
-                            {skill}
-                        </span>
+                        <div key={index} className="rounded-md bg-gray-700 text-xs py-1 px-2">
+                            <span className="print:hidden text-white">
+                                {skill}
+                            </span>
+                            <span className="hidden print:flex text-black">
+                                {skill}
+                            </span>
+                        </div>
                     ))
                 }
             </div>
