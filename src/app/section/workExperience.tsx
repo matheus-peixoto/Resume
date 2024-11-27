@@ -14,7 +14,7 @@ export function WorkExperience() {
                                 <a href={job.link} className="hover:underline" target="_blank">
                                     <h3 className="font-semibold text-black">{job.company}</h3>
                                 </a>
-                                <span className="rounded-md text-black bg-gray-100 text-sm p-1">
+                                <span className="rounded-md text-black bg-gray-100 text-xs py-1 px-2">
                                     {job.workModel}
                                 </span>
                             </div>
@@ -33,7 +33,7 @@ export function WorkExperience() {
                                 job.descriptionParagraphs.map(
                                     (descriptionParagraph, index) =>
                                     (
-                                        <p key={index} className="text-xs">{descriptionParagraph}</p>
+                                        <p key={index} className="text-xs print:text-[12px]">{descriptionParagraph}</p>
                                     )
                                 )
                             }

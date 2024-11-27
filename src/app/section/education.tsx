@@ -15,7 +15,7 @@ export function Education() {
                         <div className="mb-2">
                             <h4 className="font-mono text-sm text-black leading-none print:text-[12px]">{education.degree}</h4>
                         </div>
-                        <p className="text-xs">{education.descriptionParagraphs[0]}</p>
+                        <p className="text-xs print:text-[12px]">{education.descriptionParagraphs[0]}</p>
                     </div>
                 ))
             }
