@@ -30,11 +30,14 @@ export const RESUME = {
   },
   educations: [
     {
-      school: "Fictional University",
-      degree: "Bachelor's Degree in Computer Science",
-      start: "2010",
-      end: "2014",
-    },
+      school: "Fatec Zona Sul – Dom Paulo Evaristo Arns",
+      degree: "Análise e Desenvolvimento de Sistemas",
+      descriptionParagraphs: [
+        "Com formação em análise e desenvolvimento de sistemas, adquiri habilidades no manuseio de bancos de dados, elaboração de documentação, compreensão de lógica imperativa e funcional e análise de requisitos funcionais e não funcionais."
+      ],
+      start: "2019",
+      end: "2022",
+    }
   ],
   jobs: [
     {
