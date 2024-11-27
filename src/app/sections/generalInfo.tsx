@@ -3,7 +3,7 @@ import { LuGlobe } from "react-icons/lu";
 import { LuMail } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
 
-export function MainInfo() {
+export function GeneralInfo() {
     return (
         <section className="flex justify-between items-center">
             <div>
