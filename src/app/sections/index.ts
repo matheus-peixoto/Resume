@@ -1,4 +1,5 @@
-import { MainInfo } from "./mainInfo";
+import { GeneralInfo } from "./generalInfo";
+import { About } from "./about";
 import { WorkExperience } from "./workExperience";
 
-export { MainInfo, WorkExperience };
+export { GeneralInfo, About, WorkExperience };
