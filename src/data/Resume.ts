@@ -68,13 +68,22 @@ export const RESUME = {
     }
   ],
   skills: [
-    "HTML",
-    "CSS",
-    "JavaScript",
+    "Amazon Web Services",
+    "Arquitetura de sistemas",
+    "Microserviços",
+    "Docker",
+    "Kubernetes",
+    "C#",
+    ".Net",
+    "Asp .Net Core",
+    "Asp .Net Framework",
+    "Clean Architecture",
+    "Sql Server",
     "React",
-    "Node.js",
-    "GraphQL",
-    "TypeScript",
+    "Razor",
+    "React Native",
+    "Análise de Requisitos",
+    "Modelagem de banco",
   ],
   projects: [
     {
