@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RESUME } from "@/data/Resume";
-import { GeneralInfo, WorkExperience, About } from "./sections";
+import { GeneralInfo, WorkExperience, About } from "./section";
 
 export const metadata: Metadata = {
   title: RESUME.name + ' - Currículo',
