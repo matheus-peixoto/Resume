@@ -87,24 +87,96 @@ export const RESUME = {
   ],
   projects: [
     {
-      title: "Project Alpha",
-      techStack: ["React", "Node.js", "TypeScript"],
-      description: "A revolutionary platform for seamless collaboration.",
-      logo: "https://example.com/logos/project-alpha.png",
-      link: {
-        label: "project-alpha.com",
-        href: "https://project-alpha.com/",
-      },
+      "title": "Dropshipping",
+      "techStack": [
+        "Frontend Designer",
+        "JavaScript",
+        "Angular",
+        "Django",
+        "REST API"
+      ],
+      "description":
+        "Creative project builder that simplifies workflows and saves time. Creative project builder that simplifies workflows and saves time. Creative project builder that simplifies workflows and saves time.",
+      "link": {
+        "label": "example.com",
+        "href": "https://newproject.co/"
+      }
     },
     {
-      title: "BetaApp",
-      techStack: ["Kotlin", "Android", "Firebase"],
-      description: "A mobile application for streamlined task management.",
-      logo: "https://example.com/logos/betaapp.png",
-      link: {
-        label: "betaapp.com",
-        href: "https://betaapp.com/",
-      },
+      "title": "Mercado Livre",
+      "techStack": [
+        "Backend Specialist",
+        "JavaScript",
+        "Angular",
+        "Django",
+        "REST API"
+      ],
+      "description":
+        "Video editing platform that offers seamless rendering options. Creative project builder that simplifies workflows and saves time.",
+      "link": {
+        "label": "platform.us",
+        "href": "https://www.platform.us/"
+      }
     },
-  ],
+    {
+      "title": "Riachuelo",
+      "techStack": [
+        "Side Creation",
+        "Python",
+        "Vue.js",
+        "Parcel",
+        "REST API",
+        "Socket.io"
+      ],
+      "description":
+        "An application to grow and manage your creative work. Creative project builder that simplifies workflows and saves time.",
+      "link": {
+        "label": "projecthub.io",
+        "href": "https://projecthub.io/"
+      }
+    },
+    {
+      "title": "ZoomBuscapé - Mosaico",
+      "techStack": [
+        "Side Project",
+        "JavaScript",
+        "Vue.js",
+        "Web App Addon"
+      ],
+      "description":
+        "Application extension that logs events within user workflows. Creative project builder that simplifies workflows and saves time.",
+      "link": {
+        "label": "tracker.dev",
+        "href": "https://tracker.dev/"
+      }
+    },
+    {
+      "title": "Mega Romaneio",
+      "techStack": [
+        "Side Project",
+        "Vue.js",
+        "HTMLX"
+      ],
+      "description":
+        "Digital portfolio and articles. Created with Vue.js and Airtable API",
+      "link": {
+        "label": "example.com",
+        "href": "https://digitalpage.io/"
+      }
+    },
+    {
+      "title": "Resume",
+      "techStack": [
+        "Side Project",
+        "Vue.js",
+        "Selenium"
+      ],
+      "description":
+        "Template to showcase minimalist portfolios.",
+      "link": {
+        "label": "newservice.io",
+        "href": "https://newservice.io/"
+      }
+    }
+  ]
 } as const;

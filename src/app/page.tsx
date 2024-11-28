@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { RESUME } from "@/data/Resume";
-import { GeneralInfo, WorkExperience, About, Education, Skills } from "./section";
+import {
+  GeneralInfo,
+  WorkExperience,
+  About,
+  Education,
+  Skills,
+  Project
+} from "./section";
 
 export const metadata: Metadata = {
   title: RESUME.name + ' - Currículo',
@@ -16,10 +23,7 @@ export default function Page() {
         <WorkExperience />
         <Education />
         <Skills />
-        <section>
-          {/* projects section */}
-          {RESUME.projects.length}
-        </section>
+        <Project />
       </section>
     </main>
   );
