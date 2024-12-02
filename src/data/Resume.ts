@@ -6,9 +6,21 @@ type BulletList = {
   children: BulletList[];
 };
 
+type Project = {
+  title: string;
+  description: string;
+  techStack: string[];
+  link: {
+    label: string;
+    href: string;
+  };
+};
+
+type Projects = Project[];
+
 export const RESUME = {
   name: "Matheus Peixoto Silva",
-  initials: "JD",
+  initials: "MPS",
   location: "São Paulo, SP, Brasil",
   locationLink: "https://google.com/maps/?q=S%C3%A3o%20Paulo%2C%20S%C3%A3o%20Paulo%2C%20Brazil",
   shortDescription:
@@ -147,25 +159,29 @@ export const RESUME = {
       start: "Março de 2021",
       end: "Junho de 2021",
       descriptionParagraphs: [
-        "Como desenvolvedor .Net na Tech Eleven, uma start-up voltads a soluções tecnológicas e in-house software, desempenhei o papel no desenvolvimento de ferramentas de relatórios e funcionalidades do ERP.",
-        "Manutenção e atualização de funcionalidades de ERP com Asp .Net Framework, Asp.Net Web Forms e VB .Net.",
+        "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, desenvolvi ferramentas de relatórios e funcionalidades do ERP.",
+        "Manutenção e atualização de funcionalidades de ERP com Asp .Net Framework, Asp .Net Web Forms e VB.Net.",
         "Tradução de demandas dos usuários em especificações técnicas para implementação no sistema ERP",
         "Automação de tarefas operacionais com Asp .Net Framework",
         "Criação de relatórios via Sql Server e Firebird com Views e Procedures."
       ],
-      coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltads a soluções tecnológicas e in-house software, desempenhei o papel no desenvolvimento de ferramentas de relatórios e funcionalidades do ERP",
+      coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, participei no desenvolvimento de ferramentas de relatórios e funcionalidades e aprimoramentos do ERP interno",
       bulletList: {
         name: "Responsabilidades e Realizações",
         children: [
           {
-            name: "Desenvolvimento e manutenção de ERP",
+            name: "Desenvolvimento, aprimoramento e manutenção de ERP",
             children: [
               {
-                name: "Desenvolvi ferramentas de relatórios e novas funcionalidades para o ERP de uma start-up voltada a soluções tecnológicas e software in-house.",
+                name: "Desenvolvi ferramentas de relatórios que exportam os dados em planilha.",
                 children: [],
               },
               {
-                name: "Realizei manutenção e atualização de funcionalidades no ERP utilizando Asp .Net Framework, Asp.Net Web Forms e VB .Net.",
+                name: "Criei relatórios com SQL Server e Firebird, utilizando Views e Procedures para ERP.",
+                children: [],
+              },
+              {
+                name: "Desenvolvi ferramenta de controle de ordem de chamado entre equipes para.",
                 children: [],
               },
               {
@@ -175,11 +191,7 @@ export const RESUME = {
               {
                 name: "Implementei automações de tarefas operacionais utilizando Asp .Net Framework.",
                 children: [],
-              },
-              {
-                name: "Criei relatórios avançados com SQL Server e Firebird, utilizando Views e Procedures.",
-                children: [],
-              },
+              }
             ]
           }
         ]
@@ -209,30 +221,29 @@ export const RESUME = {
     {
       "title": "Dropshipping",
       "techStack": [
-        "Frontend Designer",
-        "JavaScript",
-        "Angular",
-        "Django",
-        "REST API"
+        "Backend",
+        "Frontend",
+        "REST API",
+        ".Net Core",
+        "SQL"
       ],
       "description":
-        "Creative project builder that simplifies workflows and saves time. Creative project builder that simplifies workflows and saves time. Creative project builder that simplifies workflows and saves time.",
+        "Projeto dropshipping de vendas da Megamamute para fornecedores com foco em móveis.",
       "link": {
-        "label": "example.com",
-        "href": "https://newproject.co/"
+        "label": "",
+        "href": ""
       }
     },
     {
       "title": "Mercado Livre",
       "techStack": [
-        "Backend Specialist",
-        "JavaScript",
-        "Angular",
-        "Django",
+        "Backend",
+        "Asp .Net Framework",
+        "SQL",
         "REST API"
       ],
       "description":
-        "Video editing platform that offers seamless rendering options. Creative project builder that simplifies workflows and saves time.",
+        "Manutenção da integração ao Mercado Livre e aprimoramento do modo fulfillment de produtos.",
       "link": {
         "label": "platform.us",
         "href": "https://www.platform.us/"
@@ -241,15 +252,14 @@ export const RESUME = {
     {
       "title": "Riachuelo",
       "techStack": [
-        "Side Creation",
-        "Python",
-        "Vue.js",
-        "Parcel",
-        "REST API",
-        "Socket.io"
+        "Backend",
+        "Asp .Net Framework",
+        "Webhook",
+        "SQL",
+        "REST API"
       ],
       "description":
-        "An application to grow and manage your creative work. Creative project builder that simplifies workflows and saves time.",
+        "Integração do início ao fim ao marketplace Riachuelo.",
       "link": {
         "label": "projecthub.io",
         "href": "https://projecthub.io/"
@@ -264,7 +274,7 @@ export const RESUME = {
         "Web App Addon"
       ],
       "description":
-        "Application extension that logs events within user workflows. Creative project builder that simplifies workflows and saves time.",
+        "Integração do início ao fim ao marketplace ZoomBuscapé.",
       "link": {
         "label": "tracker.dev",
         "href": "https://tracker.dev/"
@@ -273,12 +283,13 @@ export const RESUME = {
     {
       "title": "Mega Romaneio",
       "techStack": [
-        "Side Project",
+        "Mobile",
+        "React Native",
         "Vue.js",
         "HTMLX"
       ],
       "description":
-        "Digital portfolio and articles. Created with Vue.js and Airtable API",
+        "Projeto mobile para controle de romaneio",
       "link": {
         "label": "example.com",
         "href": "https://digitalpage.io/"
@@ -287,16 +298,15 @@ export const RESUME = {
     {
       "title": "Resume",
       "techStack": [
-        "Side Project",
-        "Vue.js",
-        "Selenium"
+        "Projeto pessoal",
+        "React"
       ],
       "description":
-        "Template to showcase minimalist portfolios.",
+        "Projeto pessoal destinado a montagem de currículo minimalista que leva em consideração avaliações ATS e TAs.",
       "link": {
         "label": "newservice.io",
         "href": "https://newservice.io/"
       }
     }
-  ]
+  ] as Projects
 } as const;
