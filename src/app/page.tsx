@@ -7,7 +7,7 @@ import {
   Education,
   Skills,
   Project
-} from "./section";
+} from "./sections";
 
 export const metadata: Metadata = {
   title: RESUME.name + ' - Currículo',
