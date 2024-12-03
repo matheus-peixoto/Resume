@@ -5,15 +5,15 @@ import { LuPhone } from "react-icons/lu";
 
 export function GeneralInfo() {
     return (
-        <section className="flex justify-between items-center">
+        <section className="flex justify-between items-center print:mb-3 mb-8">
             <div>
                 <h1 className="text-2xl font-bold text-black">
                     {RESUME.name}
                 </h1>
-                <p className="max-w-md text-pretty text-sm my-2 print:text-[12px]">
+                <p className="print:max-w-full max-w-md text-pretty text-sm my-2 print:mt-1 print:mb-2 print:text-[12px]">
                     {RESUME.shortDescription}
                 </p>
-                <p className="max-w-md items-center text-pretty text-xs mb-2">
+                <p className="max-w-md items-center text-pretty text-xs mb-1">
                     <a
                         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                         href={RESUME.locationLink}
@@ -50,11 +50,11 @@ export function GeneralInfo() {
                     }
                 </div>
 
-                <div className="hidden print:flex flex-col gap-x-1">
+                <div className="print:flex hidden flex-col gap-x-1">
                     {
                         RESUME.contact.email
                         && (
-                            <a href={`mailto:${RESUME.contact.email}`} className="text-sm font-bold">
+                            <a href={`mailto:${RESUME.contact.email}`} className="text-xs font-bold">
                                 {RESUME.contact.email}
                             </a>
                         )
@@ -63,7 +63,7 @@ export function GeneralInfo() {
                     {
                         RESUME.contact.email
                         && (
-                            <a href={`tel:${RESUME.contact.phone}`} className="text-sm font-bold">
+                            <a href={`tel:${RESUME.contact.phone}`} className="text-xs font-bold">
                                 {RESUME.contact.phone}
                             </a>
                         )
@@ -72,7 +72,7 @@ export function GeneralInfo() {
                     {
                         RESUME.contact.socials.map(
                             (social, index) => (
-                                <a key={index} className="text-sm font-bold" href={social.url}>{social.url}</a>
+                                <a key={index} className="text-xs font-bold" href={social.url}>{social.url}</a>
                             )
                         )
                     }
