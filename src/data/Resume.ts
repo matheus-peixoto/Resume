@@ -26,7 +26,7 @@ export const RESUME = {
   shortDescription:
     "Desenvolvedor na MegaMamute focado na excelência técnica e evolução contínua do negócio.",
   summary:
-    "Como analista e desenvolvedor com 4 anos de experiência, especializo-me em transformar ideias em soluções robustas. Minha atuação é voltada para .NET utilizando C# e ASP.NET para criar aplicações confiáveis e escaláveis. Sou apaixonado por inovação, automotivado e valorizo tanto o trabalho em equipe quanto o aprendizado constante.",
+    "Analista desenvolvedor com 4 anos de experiência, especializado em transformar ideias em soluções robustas, confiáveis e escaláveis com .NET, C# e ASP.NET.",
   ownerImgUrl: "https://avatars.githubusercontent.com/u/58491359",
   personalWebsiteUrl: "https://example.com",
   contact: {
@@ -52,8 +52,8 @@ export const RESUME = {
       descriptionParagraphs: [
         "Graduado em Análise e Desenvolvimento de Sistemas, desenvolvi competências em modelagem e gerenciamento de bancos de dados, elaboração de documentação técnica, análise de requisitos, além de sólida compreensão de lógica de programação e estrutura de dados."
       ],
-      start: "2019",
-      end: "2022",
+      start: "Junho de 2019",
+      end: "Junho de 2022",
     }
   ],
   jobs: [
@@ -79,28 +79,24 @@ export const RESUME = {
             name: "Integrações com e-commerces",
             children: [
               {
-                name: "Desenvolvi do início ao fim integrações junto com manutenção contínua de plataformas como Casas Bahia, Riachuelo, ZoomBuscapé e Vivo e prestei manutenção contínua para as mesmas.",
+                name: "Desenvolvi e aperfeiçoei integrações com grandes marketplaces como Casas Bahia, Riachuelo, Mercado Livre e Amazon.",
                 children: []
               },
               {
-                name: "Realizei manuntenção e aperfeiçoamento de integrações com marketplaces de grande porte, incluindo Mercado Livre, Magazine Luiza e Amazon, garantindo operações eficientes e alinhadas às demandas comerciais.",
+                name: "Apliquei design patterns e design principles como SOLID e DRY",
                 children: []
-              },
-              {
-                name: "Apliquei de design patterns e princípios como SOLID e DRY",
-                children: []
-              },
-              {
-                name: "Para estas demandas utilizei majoritariamente de C#, Asp .Net framework, SQL Server e Entity Framework",
-                children: []
-              },
+              }
             ]
           },
           {
             name: "Plataforma de dropshipping",
             children: [
               {
-                name: "Desenvolvi, documentei e prestei manutenção do início ao fim de uma plataforma própria focada em dropshipping de móveis, atuando como desenvolvedor principal tanto no back-end quanto no front-end seguindo padrões Clean Architecture junto com princípios SOLID e design patterns.",
+                name: "Desenvolvi, documentei e realizei manutenção do início ao fim de uma plataforma própria de dropshipping.",
+                children: []
+              },
+              {
+                name: "Fui desenvolvedor principal tanto no back-end quanto no front-end seguindo padrões Clean Architecture e MVC.",
                 children: []
               },
               {
@@ -113,10 +109,6 @@ export const RESUME = {
               },
               {
                 name: "Implementei procedures para automação de validações fiscais e melhorias de performance no banco de dados com criação de índices.",
-                children: []
-              },
-              {
-                name: "Gerenciei e sanei dúvidas técnicas de integrações com fornecedores como Itatiaia Móveis, Caemmun e Peternella.",
                 children: []
               }
             ]
@@ -138,11 +130,7 @@ export const RESUME = {
             name: "Documentação",
             children: [
               {
-                name: "Documentei APIs com Swagger.",
-                children: []
-              },
-              {
-                name: "Desenvolvi fluxos detalhados de gerenciamento de produtos e pedidos para dropshipping.",
+                name: "Documentei APIs com Swagger e criei fluxos detalhados para gestão de produtos e pedidos.",
                 children: []
               }
             ]
@@ -165,34 +153,29 @@ export const RESUME = {
         "Automação de tarefas operacionais com Asp .Net Framework",
         "Criação de relatórios via Sql Server e Firebird com Views e Procedures."
       ],
-      coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, participei no desenvolvimento de ferramentas de relatórios e funcionalidades e aprimoramentos do ERP interno",
+      coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, participei no desenvolvimento de funcionalidades e aprimoramentos do ERP interno",
       bulletList: {
         name: "Responsabilidades e Realizações",
         children: [
           {
-            name: "Desenvolvimento, aprimoramento e manutenção de ERP",
-            children: [
-              {
-                name: "Desenvolvi ferramentas de relatórios que exportam os dados em planilha.",
-                children: [],
-              },
-              {
-                name: "Criei relatórios com SQL Server e Firebird, utilizando Views e Procedures para ERP.",
-                children: [],
-              },
-              {
-                name: "Desenvolvi ferramenta de controle de ordem de chamado entre equipes para.",
-                children: [],
-              },
-              {
-                name: "Traduzi demandas dos usuários em especificações técnicas para implementação no sistema ERP.",
-                children: [],
-              },
-              {
-                name: "Implementei automações de tarefas operacionais utilizando Asp .Net Framework.",
-                children: [],
-              }
-            ]
+            name: "Desenvolvi ferramentas de relatórios que exportam os dados em planilha.",
+            children: [],
+          },
+          {
+            name: "Criei relatórios com SQL Server e Firebird, utilizando Views e Procedures para ERP.",
+            children: [],
+          },
+          {
+            name: "Desenvolvi ferramenta de controle de ordem de chamado entre equipes para.",
+            children: [],
+          },
+          {
+            name: "Traduzi demandas dos usuários em especificações técnicas para implementação no sistema ERP.",
+            children: [],
+          },
+          {
+            name: "Implementei automações de tarefas operacionais utilizando Asp .Net Framework.",
+            children: [],
           }
         ]
       } as BulletList
@@ -245,12 +228,12 @@ export const RESUME = {
       "description":
         "Manutenção da integração ao Mercado Livre e aprimoramento do modo fulfillment de produtos.",
       "link": {
-        "label": "platform.us",
-        "href": "https://www.platform.us/"
+        "label": "",
+        "href": ""
       }
     },
     {
-      "title": "Riachuelo",
+      "title": "Riachuelo e ZoomBuscapé - Mosaico",
       "techStack": [
         "Backend",
         "Asp .Net Framework",
@@ -259,40 +242,23 @@ export const RESUME = {
         "REST API"
       ],
       "description":
-        "Integração do início ao fim ao marketplace Riachuelo.",
+        "Integração dos marketplaces ao Riachuelo e ZoomBuscapé do início ao fim.",
       "link": {
-        "label": "projecthub.io",
-        "href": "https://projecthub.io/"
-      }
-    },
-    {
-      "title": "ZoomBuscapé - Mosaico",
-      "techStack": [
-        "Side Project",
-        "JavaScript",
-        "Vue.js",
-        "Web App Addon"
-      ],
-      "description":
-        "Integração do início ao fim ao marketplace ZoomBuscapé.",
-      "link": {
-        "label": "tracker.dev",
-        "href": "https://tracker.dev/"
+        "label": "",
+        "href": ""
       }
     },
     {
       "title": "Mega Romaneio",
       "techStack": [
         "Mobile",
-        "React Native",
-        "Vue.js",
-        "HTMLX"
+        "React Native"
       ],
       "description":
         "Projeto mobile para controle de romaneio",
       "link": {
-        "label": "example.com",
-        "href": "https://digitalpage.io/"
+        "label": "",
+        "href": ""
       }
     },
     {
@@ -304,8 +270,8 @@ export const RESUME = {
       "description":
         "Projeto pessoal destinado a montagem de currículo minimalista que leva em consideração avaliações ATS e TAs.",
       "link": {
-        "label": "newservice.io",
-        "href": "https://newservice.io/"
+        "label": "",
+        "href": ""
       }
     }
   ] as Projects
