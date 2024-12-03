@@ -1,4 +1,4 @@
-import { WorkInfo } from "@/component";
+import { WorkInfo } from "@/components";
 
 export function WorkExperience() {
     return (

@@ -1,5 +1,5 @@
-import { LinkedInIcon } from "@/component/icon";
-import { GitHubIcon } from "@/component/icon";
+import { LinkedInIcon } from "@/components/icons";
+import { GitHubIcon } from "@/components/icons";
 
 type BulletList = {
   name: string;
