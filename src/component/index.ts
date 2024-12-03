@@ -1,4 +1,5 @@
 import { NestedList } from "./NestedList";
 import { ProjectCard } from "./ProjectCard";
+import { WorkInfo } from './WorkInfo'
 
-export { NestedList, ProjectCard };
+export { NestedList, WorkInfo, ProjectCard };

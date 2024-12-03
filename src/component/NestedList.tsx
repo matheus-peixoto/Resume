@@ -22,19 +22,23 @@ export function NestedList({ level, data }: NestedListProps) {
 
     const getUlClassName = (level: number): string => {
         const isLevelZero = level == 0;
-        const fontAndMarginLeft = `${isLevelZero ? 'text-sm ml-3' : 'text-xs ml-6'}`;
+        const fontAndMarginLeft = `${isLevelZero ? 'text-sm ml-3 print:ml-0' : 'text-xs ml-6'}`;
 
         return `${getUlCSSType(level)} ${fontAndMarginLeft} mt-1`;
     }
 
-    const getDataItemFont = (level: number) => level > 1 ? 'font-normal' : 'font-bold';
+    const getFontStyle = () => {
+        if (data.children.length > 0) {
+            return 'font-bold text-black';
+        }
 
-    console.log('Class "', getUlClassName(level), '"');
+        return '';
+    };
 
     return (
         <ul className={getUlClassName(level)}>
             <li>
-                <span className={getDataItemFont(level)}>
+                <span className={getFontStyle()}>
                     {data.name + `${data.children.length > 0 ? ':' : ''}`}
                 </span>
                 {data.children.map((child, index) =>
