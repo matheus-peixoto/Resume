@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="font-mono container mx-auto overflow-auto p-4 text-gray-500 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
+    <main className="font-mono container mx-auto overflow-auto p-4 text-gray-700 print:py-0 print:px-0 print:p-0 md:p-16">
+      <section className="print:mx-6 print:max-w-3xl mx-auto w-fit max-w-2xl bg-white">
         <GeneralInfo />
         <About />
         <WorkExperience />
