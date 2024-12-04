@@ -6,7 +6,8 @@ import {
   About,
   Education,
   Skills,
-  Project
+  Project,
+  StickyFooter
 } from "./sections";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function Page() {
         <Skills />
         <Project />
       </section>
+      <StickyFooter />
     </main>
   );
 }

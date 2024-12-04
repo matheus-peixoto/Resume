@@ -6,7 +6,7 @@ export function Skills() {
     return (
         <section className="print:mb-3 mb-8">
             <div className="mb-2">
-                <h2 className="text-lg font-bold text-black">Habilidades Técnicas</h2>
+                <h2 className="text-xl print:text-lg font-bold text-black">Habilidades Técnicas</h2>
             </div>
             <div className="flex flex-wrap gap-1">
                 {
