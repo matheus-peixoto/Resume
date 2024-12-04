@@ -18,14 +18,13 @@ export function WorkInfo({ index, style }: WorkInfoProps) {
                         <h3 className="font-semibold text-black">{job.company}</h3>
                     </a>
                     {
-                        job.workModel.map((badge, index) => (
+                        job.workModels.map((badge, index) => (
                             <span key={index} className="rounded-md text-black bg-gray-100 text-xs py-1 px-2">
                                 {badge}
                             </span>
                         ))
                     }
                 </div>
-
                 <span className="inline-flex items-center text-sm">
                     {`${job.start} - ${job.end ?? 'Atual'}`}
                 </span>

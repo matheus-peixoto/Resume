@@ -1,24 +1,8 @@
+import { Resume } from "@/types/resume";
 import { LinkedInIcon } from "@/components/icons";
 import { GitHubIcon } from "@/components/icons";
 
-type BulletList = {
-  name: string;
-  children: BulletList[];
-};
-
-type Project = {
-  title: string;
-  description: string;
-  techStack: string[];
-  link: {
-    label: string;
-    href: string;
-  };
-};
-
-type Projects = Project[];
-
-export const RESUME = {
+export const RESUME: Resume = {
   name: "Matheus Peixoto Silva",
   initials: "MPS",
   location: "São Paulo, SP, Brasil",
@@ -60,7 +44,7 @@ export const RESUME = {
     {
       company: "MegaMamute",
       link: "https://www.megamamute.com.br/",
-      workModel: ["Remoto"],
+      workModels: ["Remoto"],
       title: "Analista Desenvolvedor",
       logo: "https://media.licdn.com/dms/image/v2/C4D0BAQG_JMRqGl1OLg/company-logo_200_200/company-logo_200_200/0/1648590192348/megamamutecombr_logo?e=1740614400&v=beta&t=nr43KDyspSkEWBwZglc7_OEmJh1_ll6-e66cJ_L75xc",
       start: "Junho de 2021",
@@ -136,12 +120,12 @@ export const RESUME = {
             ]
           }
         ]
-      } as BulletList
+      }
     },
     {
       company: "TechEleven.",
       link: "https://example.com/innovate",
-      workModel: ["Presencial", "Terceirizado"],
+      workModels: ["Presencial", "Terceirizado"],
       title: "Desenvolvedor .Net",
       logo: "https://example.com/logos/innovate.png",
       start: "Março de 2021",
@@ -178,7 +162,7 @@ export const RESUME = {
             children: [],
           }
         ]
-      } as BulletList
+      }
     }
   ],
   skills: [
@@ -274,5 +258,5 @@ export const RESUME = {
         "href": ""
       }
     }
-  ] as Projects
+  ]
 } as const;

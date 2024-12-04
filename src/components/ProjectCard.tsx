@@ -1,11 +1,7 @@
-interface ProjectProps {
-    readonly title: string,
-    readonly description: string,
-    readonly techStack: Array<string>
-}
+import { Project } from "@/types/resume";
 
 interface ProjectCardProps {
-    readonly project: ProjectProps
+    readonly project: Project
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
