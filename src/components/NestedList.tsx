@@ -1,11 +1,8 @@
-interface NestListDataProps {
-    name: string,
-    children: Array<NestListDataProps>
-}
+import { BulletList } from "@/types/resume";
 
 interface NestedListProps {
     level: number,
-    data: NestListDataProps
+    data: BulletList
 }
 
 export function NestedList({ level, data }: NestedListProps) {
