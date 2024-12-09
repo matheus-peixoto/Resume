@@ -8,7 +8,7 @@ export function Project({ resume }: ResumeProp) {
                 <div className="mb-2">
                     <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.projects}</h2>
                 </div>
-                <div className="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     {
                         resume.projects.map((proj, index) => (
                             <ProjectCard key={index} project={proj} />
