@@ -6,7 +6,7 @@ import { WorkExperience } from "./workExperience";
 import { Education } from "./education";
 import { Skills } from "./skill";
 import { Project } from "./project";
-import { StickyFooter } from "./stickyFooter";
+import { PrintOption } from "./printOption";
 
 export {
     GeneralInfo,
@@ -15,5 +15,5 @@ export {
     Education,
     Skills,
     Project,
-    StickyFooter
+    PrintOption
 };
