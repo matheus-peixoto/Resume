@@ -51,7 +51,7 @@ export function GeneralInfo({ resume }: ResumeProp) {
                         resume.contact.socials.map(
                             (social, index) => (
                                 <a key={index} href={social.url} target="_blank" className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
-                                    <social.icon />
+                                    {iconMap[social.name.toLowerCase()] || <></>}
                                 </a>
                             )
                         )
