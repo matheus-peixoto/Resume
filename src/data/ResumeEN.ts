@@ -50,7 +50,7 @@ export const RESUMEEN: Resume = {
       title: "Software Developer",
       logo: "https://media.licdn.com/dms/image/v2/C4D0BAQG_JMRqGl1OLg/company-logo_200_200/company-logo_200_200/0/1648590192348/megamamutecombr_logo?e=1740614400&v=beta&t=nr43KDyspSkEWBwZglc7_OEmJh1_ll6-e66cJ_L75xc",
       start: "June 2021",
-      end: null,
+      end: "Present",
       descriptionParagraphs: [
         "At MegaMamute, a company focused on online sales, I played a key role in developing and improving integrations with major e-commerce platforms in Brazil, as well as in maintaining and evolving internal systems.",
         "I carried out end-to-end integrations and continuous maintenance for major platforms like Casas Bahia, Riachuelo, ZoomBuscapé, and Vivo. In addition, I enhanced integrations with leading marketplaces such as Mercado Livre, Magazine Luiza, and Amazon, ensuring efficient operations aligned with business demands.",
@@ -107,7 +107,7 @@ export const RESUMEEN: Resume = {
                 children: []
               },
               {
-                name: "Developed internal automation tools using Selenium, handled data entry via spreadsheets, and generated graphs and reports using .NET Core, React, and Razor.",
+                name: "Developed internal automation tools using Selenium, handled data gathering via spreadsheets, and generated graphs and reports using .NET Core, React, and Razor.",
                 children: []
               }
             ]

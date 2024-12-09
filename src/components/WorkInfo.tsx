@@ -24,7 +24,7 @@ export function WorkInfo({ job, style }: WorkInfoProps) {
                     }
                 </div>
                 <span className="inline-flex items-center text-sm">
-                    {`${job.start} - ${job.end ?? 'Atual'}`}
+                    {`${job.start} - ${job.end}`}
                 </span>
             </div>
             <div>

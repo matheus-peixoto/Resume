@@ -13,7 +13,7 @@ export function Education({ resume }: ResumeProp) {
                             <h3 className="font-semibold text-black">{education.school}</h3>
 
                             <span className="inline-flex items-center text-sm">
-                                {`${education.start} - ${education.end ?? 'Atual'}`}
+                                {`${education.start} - ${education.end}`}
                             </span>
                         </div>
                         <div className="print:mb-2 mb-2.5">

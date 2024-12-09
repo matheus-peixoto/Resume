@@ -52,7 +52,7 @@ export const RESUMEPTBR: Resume = {
       title: "Analista Desenvolvedor",
       logo: "https://media.licdn.com/dms/image/v2/C4D0BAQG_JMRqGl1OLg/company-logo_200_200/company-logo_200_200/0/1648590192348/megamamutecombr_logo?e=1740614400&v=beta&t=nr43KDyspSkEWBwZglc7_OEmJh1_ll6-e66cJ_L75xc",
       start: "Junho de 2021",
-      end: null,
+      end: "Atual",
       descriptionParagraphs: [
         "Na Megamamute, uma empresa com foco em vendas online, desempenhei um papel essencial no desenvolvimento e aprimoramento de integrações com grandes e-commerces do Brasil, assim como manutenção e evolução de sistemas internos da empresa",
         "Realizei do início ao fim integrações junto com manutenção contínua de grandes plataformas como Casas Bahia, Riachuelo, ZoomBuscapé e Vivo. Além disso, trabalhei no aprimoramento das integrações com marketplaces de grande relevância como Mercado Livre, Magazine Luiza e Amazon, assegurando operações eficientes e alinhadas às demandas comerciais.",

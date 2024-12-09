@@ -37,7 +37,7 @@ export interface Job {
     title: string;
     logo: string;
     start: string;
-    end: string | null;
+    end: string;
     descriptionParagraphs: string[];
     coreDescription: string;
     bulletList: BulletList;
