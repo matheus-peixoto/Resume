@@ -1,7 +1,7 @@
 import { Resume } from "@/types/resume";
 
 export const RESUMEEN: Resume = {
-  resumeLanguage: "Português",
+  resumeLanguage: "English",
   name: "Matheus Peixoto Silva",
   initials: "MPS",
   location: "São Paulo, SP, Brazil",
