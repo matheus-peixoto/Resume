@@ -1,15 +1,13 @@
-import { RESUME } from "@/data/Resume";
+import { Job } from "@/types/resume";
 import { NestedList } from "./NestedList";
 import { CSSProperties } from "react";
 
 interface WorkInfoProps {
-    index: number,
-    style?: CSSProperties
+    job: Job
+    style?: CSSProperties,
 }
 
-export function WorkInfo({ index, style }: WorkInfoProps) {
-    const job = RESUME.jobs[index];
-
+export function WorkInfo({ job, style }: WorkInfoProps) {
     return (
         <div className="mt-2 mb-4" style={style}>
             <div className="flex justify-between mt-2">

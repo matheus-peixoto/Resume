@@ -1,13 +1,13 @@
-import { RESUME } from "@/data/Resume";
+import { ResumeProp } from "@/types/resume";
 
-export function Education() {
+export function Education({ resume }: ResumeProp) {
     return (
         <section className="print:mb-3 mb-8">
             <div className="mb-2">
-                <h2 className="text-xl print:text-lg font-bold text-black">Formação</h2>
+                <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.education}</h2>
             </div>
             {
-                RESUME.educations.map((education, index) => (
+                resume.educations.map((education, index) => (
                     <div key={index} className="mt-2">
                         <div className="mb-1 flex justify-between">
                             <h3 className="font-semibold text-black">{education.school}</h3>

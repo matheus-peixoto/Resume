@@ -1,46 +1,54 @@
-import { RESUME } from "@/data/Resume";
+import React from "react";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { ResumeProp } from "@/types/resume";
 import { LuGlobe } from "react-icons/lu";
 import { LuMail } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
 
-export function GeneralInfo() {
+export function GeneralInfo({ resume }: ResumeProp) {
+    const iconMap: Record<string, React.ReactElement> = {
+        'github': <GitHubIcon />,
+        'linkedin': <LinkedInIcon />,
+        '': <></>
+    }
+
     return (
         <section className="flex justify-between items-center print:mb-3 mb-8">
             <div>
                 <h1 className="text-2xl font-bold text-black">
-                    {RESUME.name}
+                    {resume.name}
                 </h1>
                 <p className="print:max-w-full max-w-md text-pretty text-sm my-2 print:mt-1 print:mb-2 print:text-[12px]">
-                    {RESUME.shortDescription}
+                    {resume.shortDescription}
                 </p>
                 <p className="max-w-md items-center text-pretty text-xs mb-1">
                     <a
                         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                        href={RESUME.locationLink}
+                        href={resume.locationLink}
                         target="_blank"
                     >
                         <LuGlobe size={12} />
-                        {RESUME.location}
+                        {resume.location}
                     </a>
                 </p>
 
                 <div className="flex gap-x-1 print:hidden">
                     {
-                        RESUME.contact.email ? (
-                            <a href={`mailto:${RESUME.contact.email}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md transition duration-200 hover:bg-gray-100">
+                        resume.contact.email ? (
+                            <a href={`mailto:${resume.contact.email}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md transition duration-200 hover:bg-gray-100">
                                 <LuMail size={16} />
                             </a>
                         ) : null
                     }
                     {
-                        RESUME.contact.email ? (
-                            <a href={`tel:${RESUME.contact.phone}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
+                        resume.contact.email ? (
+                            <a href={`tel:${resume.contact.phone}`} className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
                                 <LuPhone size={16} />
                             </a>
                         ) : null
                     }
                     {
-                        RESUME.contact.socials.map(
+                        resume.contact.socials.map(
                             (social, index) => (
                                 <a key={index} href={social.url} target="_blank" className="inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md duration-200 hover:bg-gray-100">
                                     <social.icon />
@@ -52,25 +60,25 @@ export function GeneralInfo() {
 
                 <div className="print:flex hidden flex-col gap-x-1">
                     {
-                        RESUME.contact.email
+                        resume.contact.email
                         && (
-                            <a href={`mailto:${RESUME.contact.email}`} className="text-xs font-bold">
-                                {RESUME.contact.email}
+                            <a href={`mailto:${resume.contact.email}`} className="text-xs font-bold">
+                                {resume.contact.email}
                             </a>
                         )
                     }
 
                     {
-                        RESUME.contact.email
+                        resume.contact.email
                         && (
-                            <a href={`tel:${RESUME.contact.phone}`} className="text-xs font-bold">
-                                {RESUME.contact.phone}
+                            <a href={`tel:${resume.contact.phone}`} className="text-xs font-bold">
+                                {resume.contact.phone}
                             </a>
                         )
                     }
 
                     {
-                        RESUME.contact.socials.map(
+                        resume.contact.socials.map(
                             (social, index) => (
                                 <a key={index} className="text-xs font-bold" href={social.url}>{social.url}</a>
                             )
@@ -81,7 +89,7 @@ export function GeneralInfo() {
             </div>
 
             <div className="w-full h-full max-w-28 max-h-28 print:hidden">
-                <img className="rounded-md" src={RESUME.ownerImgUrl} alt={RESUME.name + " photo"} />
+                <img className="rounded-md" src={resume.ownerImgUrl} alt={resume.name + " photo"} />
             </div>
         </section>
     )
