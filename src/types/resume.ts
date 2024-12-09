@@ -1,9 +1,14 @@
-import React from "react";
+export interface SectionTitles {
+    about: string,
+    workExperience: string,
+    education: string,
+    skills: string,
+    projects: string
+}
 
 export interface Social {
     name: string;
     url: string;
-    icon: React.ComponentType;
 }
 
 export interface Contact {
@@ -49,6 +54,7 @@ export interface Project {
 }
 
 export interface Resume {
+    resumeLanguage: string,
     name: string;
     initials: string;
     location: string;
@@ -57,9 +63,14 @@ export interface Resume {
     summary: string;
     ownerImgUrl: string;
     personalWebsiteUrl: string;
+    sectionTitles: SectionTitles;
     contact: Contact;
     educations: Education[];
     jobs: Job[];
     skills: string[];
     projects: Project[];
+}
+
+export interface ResumeProp {
+    resume: Resume
 }

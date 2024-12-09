@@ -22,7 +22,7 @@ Este projeto visa criar um currículo otimizado para ATS (Applicant Tracking Sys
   Ajuste dinâmico a diferentes tamanhos de tela garante que o CV possa ser visualizado de forma legível em qualquer dispositivo, sem comprometer a estrutura otimizada para ATS/TA.
 
 - **Estilos otimizados para web e PDF:**  
-  O uso de CSS personalizado para cada tipo de mídia (navegador e PDF) assegura que a versão impressa mantenha a legibilidade, formatação adequada e hierarquia visual pensada para ATS/TA, assim como a versão online. Isso resulta em um currículo que tanto a máquina quanto o recrutador humano conseguem analisar com facilidade.
+  O uso da classes para print do Tailwind para cada tipo de mídia (browser e PDF) assegura que a versão impressa mantenha a legibilidade, formatação adequada e hierarquia visual pensada para ATS/TA, assim como a versão online. Isso resulta em um currículo que tanto a máquina quanto o recrutador humano conseguem analisar com facilidade.
 
 ## Como executar o projeto
 

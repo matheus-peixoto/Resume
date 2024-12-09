@@ -1,16 +1,16 @@
-import { RESUME } from "@/data/Resume";
+import { ResumeProp } from "@/types/resume";
 
-export function Skills() {
-    const lastSkillIndex = RESUME.skills.length - 1;
-
+export function Skills({ resume }: ResumeProp) {
+    const lastSkillIndex = resume.skills.length - 1;
+    
     return (
         <section className="print:mb-3 mb-8">
             <div className="mb-2">
-                <h2 className="text-xl print:text-lg font-bold text-black">Habilidades Técnicas</h2>
+                <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.skills}</h2>
             </div>
             <div className="flex flex-wrap gap-1">
                 {
-                    RESUME.skills.map((skill, index) => (
+                    resume.skills.map((skill, index) => (
                         <div key={index} className="rounded-md bg-gray-700 text-xs py-1 px-2 print:p-0">
                             <span className="print:hidden text-white">
                                 {skill}
