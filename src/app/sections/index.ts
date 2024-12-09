@@ -8,6 +8,7 @@ import { Education } from "./education";
 import { Skills } from "./skill";
 import { Project } from "./project";
 import { PrintOption } from "./printOption";
+import { ResumeSections } from "./resumeSections";
 
 export {
     Languages,
@@ -17,5 +18,6 @@ export {
     Education,
     Skills,
     Project,
-    PrintOption
+    PrintOption,
+    ResumeSections
 };
