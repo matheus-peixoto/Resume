@@ -1,5 +1,6 @@
 "use client";
 
+import { Languages } from "./languages";
 import { GeneralInfo } from "./generalInfo";
 import { About } from "./about";
 import { WorkExperience } from "./workExperience";
@@ -9,6 +10,7 @@ import { Project } from "./project";
 import { PrintOption } from "./printOption";
 
 export {
+    Languages,
     GeneralInfo,
     About,
     WorkExperience,
