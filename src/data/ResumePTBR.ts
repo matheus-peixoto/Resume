@@ -1,8 +1,7 @@
 import { Resume } from "@/types/resume";
-import { LinkedInIcon } from "@/components/icons";
-import { GitHubIcon } from "@/components/icons";
 
-export const RESUME: Resume = {
+export const RESUMEPTBR: Resume = {
+  resumeLanguage: "Português",
   name: "Matheus Peixoto Silva",
   initials: "MPS",
   location: "São Paulo, SP, Brasil",
@@ -18,16 +17,21 @@ export const RESUME: Resume = {
     phone: "+55 (11)99280-6535",
     socials: [
       {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/matheus-peixoto-silva/",
-        icon: LinkedInIcon,
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/matheus-peixoto-silva/"
       },
       {
         name: "GitHub",
-        url: "https://github.com/matheus-peixoto/",
-        icon: GitHubIcon,
+        url: "https://github.com/matheus-peixoto/"
       }
     ],
+  },
+  sectionTitles: {
+    about: "Sobre",
+    workExperience: "Experiência Profissional",
+    education: "Formação",
+    skills: "Habilidades Técnicas",
+    projects: "Projetos Relevantes"
   },
   educations: [
     {
