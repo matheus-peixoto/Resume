@@ -1,4 +1,3 @@
-
 import { Resume } from "@/types/resume";
 import { RESUMEEN } from './ResumeEN';
 import { RESUMEPTBR } from './ResumePTBR';

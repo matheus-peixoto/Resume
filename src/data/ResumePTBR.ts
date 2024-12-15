@@ -105,7 +105,7 @@ export const RESUMEPTBR: Resume = {
             name: "Projetos internos gerais",
             children: [
               {
-                name: "Analisei implementei soluções com base em requisitos de diversos setores da empresa.",
+                name: "Analisei e implementei soluções com base em requisitos de diversos setores da empresa.",
                 children: []
               },
               {
@@ -196,6 +196,7 @@ export const RESUMEPTBR: Resume = {
         "Frontend",
         "REST API",
         ".Net Core",
+        "Redis",
         "SQL"
       ],
       "description":
@@ -231,6 +232,20 @@ export const RESUMEPTBR: Resume = {
       ],
       "description":
         "Integração dos marketplaces ao Riachuelo e ZoomBuscapé do início ao fim.",
+      "link": {
+        "label": "",
+        "href": ""
+      }
+    },
+    {
+      "title": "Monolítico para Microserviços",
+      "techStack": [
+        "Backend",
+        ".NET Core",
+        "RabbitMQ"
+      ],
+      "description":
+        "Projeto para a troca de arquitetura da MegaMamute para microservices",
       "link": {
         "label": "",
         "href": ""

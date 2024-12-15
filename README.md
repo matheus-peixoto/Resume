@@ -45,12 +45,36 @@ Em seguida, acesse http://localhost:3000 no seu navegador.
 
 ## Como criar seu próprio currículo a partir deste projeto
 
-  1. **Edite o arquivo Resume.ts:**
-     Este arquivo concentra as informações principais do currículo: seções, textos, palavras-chave e habilidades técnicas. Basta modificar o conteúdo para adequá-lo ao seu perfil profissional.
+  1. **Edite às informações do currículo**  
+  Os arquivos principais estão localizados no diretório `src/data`. Altere os arquivos `Resume*.ts` para atualizar seções, textos, palavras-chave e habilidades técnicas de acordo com o seu perfil profissional.
 
-  2. **Ajuste a impressão e formatação via Print Dialog:**
-     Ao imprimir o currículo pelo navegador (Ctrl+P ou Cmd+P), você pode ajustar margens, orientações e outros detalhes da página para obter um resultado final otimizado em PDF. Experimente diferentes configurações até alcançar a formatação desejada.
+  2. **Adicione novos idiomas**  
+  - Crie um novo arquivo `Resume*.ts` para o idioma desejado.
+
+  - Adicione este arquivo à re-exportação no arquivo `src/data/index.ts`.
+
+  - Crie uma rota para o idioma seguindo o padrão existente:
+
+    - Adicione um arquivo com a abreviação do idioma (ex.: `pt-br`) contendo um `page.tsx` no diretório correspondente.
+
+    - No objeto `resumesMap`, inclua o mesmo nome da nova pasta como chave (ex.: `"pt-br"`).
+
+    Exemplo:
+    ```bash
+    import { Resume } from "@/types/resume";
+    import { RESUMEEN } from './ResumeEN';
+    import { RESUMEPTBR } from './ResumePTBR';
+
+    const resumesMap: Record<string, Resume> = {
+      "en": RESUMEEN,
+      "pt-br": RESUMEPTBR,
+    };
+
+    export default resumesMap;
+
+  3. **Ajuste a formatação para PDF:**  
+  Ao imprimir o currículo pelo navegador (Ctrl+P ou Cmd+P), você pode ajustar margens, orientações e outros detalhes da página para obter um resultado final otimizado em PDF. Experimente diferentes configurações até alcançar a formatação desejada.
 
 ## Créditos e Inspiração
 
-Este projeto foi criado do zero com foco em otimização para ATS/TA e visual minimalista, porém tem grande inspiração visual no lindo projeto https://github.com/BartoszJarocki/cv/. Todo o código é próprio e apenas o conceito visual foi referência para manter um padrão estético simplificado.
+Este projeto foi criado do zero com foco em otimização para ATS/TA e visual minimalista. A inspiração visual foi tirado do belíssimo projeto de [Bartosz Jarocki](https://github.com/BartoszJarocki/cv/). Todo o código é próprio e apenas o conceito visual foi referência para manter um padrão estético simplificado.
