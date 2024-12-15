@@ -12,7 +12,7 @@ export function WorkInfo({ job, style }: WorkInfoProps) {
         <div className="mt-2 mb-4" style={style}>
             <div className="flex justify-between mt-2">
                 <div className="flex flex-col sm:flex-row gap-2 mb-1 min-w-24">
-                    <a href={job.link} className="hover:underline" target="_blank">
+                    <a href={job.link ?? undefined} className="hover:underline" target="_blank" >
                         <h3 className="font-semibold text-black">{job.company}</h3>
                     </a>
                     {

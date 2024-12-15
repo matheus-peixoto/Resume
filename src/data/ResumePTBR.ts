@@ -128,7 +128,7 @@ export const RESUMEPTBR: Resume = {
     },
     {
       company: "TechEleven.",
-      link: "https://example.com/innovate",
+      link: null,
       workModels: ["Presencial", "Terceirizado"],
       title: "Desenvolvedor .Net",
       logo: "https://example.com/logos/innovate.png",

@@ -126,7 +126,7 @@ export const RESUMEEN: Resume = {
     },
     {
       company: "TechEleven",
-      link: "https://example.com/innovate",
+      link: null,
       workModels: ["On-site", "Contract"],
       title: ".NET Developer",
       logo: "https://example.com/logos/innovate.png",
