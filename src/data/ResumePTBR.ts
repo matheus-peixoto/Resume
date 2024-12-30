@@ -182,7 +182,7 @@ export const RESUMEPTBR: Resume = {
     "React",
     "Razor",
     "React Native",
-    "Microserviços",
+    "Microsserviços",
     "Docker",
     "Kubernetes",
     "Análise de Requisitos",
@@ -238,7 +238,7 @@ export const RESUMEPTBR: Resume = {
       }
     },
     {
-      "title": "Monolítico para Microserviços",
+      "title": "Monolítico para Microsserviços",
       "techStack": [
         "Backend",
         ".NET Core",
