@@ -30,7 +30,7 @@ Este projeto é baseado em tecnologias web padrão. Você pode servir os arquivo
 
 ### Usando PNPM
 
-1. **Instale o PNPM (se necessário):**  
+1. **Instale o PNPM ou outro gerenciado de pacotes de sua escolha (as instruções decorrentes usam o pnpm como exemplo):**  
    Caso não tenha o PNPM instalado, consulte a [documentação oficial](https://pnpm.io/installation).
 
 2. **Instale as dependências:**  
@@ -45,7 +45,7 @@ Em seguida, acesse http://localhost:3000 no seu navegador.
 
 ## Como criar seu próprio currículo a partir deste projeto
 
-  1. **Edite às informações do currículo**  
+  1. **Edite as informações do currículo**  
   Os arquivos principais estão localizados no diretório `src/data`. Altere os arquivos `Resume*.ts` para atualizar seções, textos, palavras-chave e habilidades técnicas de acordo com o seu perfil profissional.
 
   2. **Adicione novos idiomas**  
@@ -55,25 +55,31 @@ Em seguida, acesse http://localhost:3000 no seu navegador.
 
   - Crie uma rota para o idioma seguindo o padrão existente:
 
-    - Adicione um arquivo com a abreviação do idioma (ex.: `pt-br`) contendo um `page.tsx` no diretório correspondente.
+    - Siga o padrão dentro de `src/data` e crie o conteúdo do currículo dessa nova língua, alemão por exemplo, herdando da interface Resume (ex.: `src/data/ResumeDE.ts`).
 
-    - No objeto `resumesMap`, inclua o mesmo nome da nova pasta como chave (ex.: `"pt-br"`).
+    - Adicione uma pasta nomeada como a abreviação do idioma (ex.: `de` para alemão gerando `src/app/de`). 
+    
+    - Dentro desta nova pasta crie um `page.tsx` seguindo o padrão já existente gerando um `src/app/de/page.tsx`.
+
+    - No objeto `resumesMap`, inclua o mesmo nome da nova pasta como chave (ex.: `"de"`).
 
     Exemplo:
     ```bash
     import { Resume } from "@/types/resume";
     import { RESUMEEN } from './ResumeEN';
     import { RESUMEPTBR } from './ResumePTBR';
+    import { RESUMEDE } from './ResumeDE';
 
     const resumesMap: Record<string, Resume> = {
       "en": RESUMEEN,
       "pt-br": RESUMEPTBR,
+      "de": RESUMEDE
     };
 
     export default resumesMap;
 
   3. **Ajuste a formatação para PDF:**  
-  Ao imprimir o currículo pelo navegador (Ctrl+P ou Cmd+P), você pode ajustar margens, orientações e outros detalhes da página para obter um resultado final otimizado em PDF. Experimente diferentes configurações até alcançar a formatação desejada.
+  Ao imprimir o currículo pelo navegador (Ctrl+P ou Cmd+P) ou clicando no botão do rodapé, ajuste margens, orientações e outros detalhes da página para obter um resultado final otimizado para o seu currículo em PDF. Experimente diferentes configurações até alcançar a formatação desejada.
 
 ## Créditos e Inspiração
 
