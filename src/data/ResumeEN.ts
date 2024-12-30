@@ -65,11 +65,11 @@ export const RESUMEEN: Resume = {
             name: "E-commerce Integrations",
             children: [
               {
-                name: "Developed and improved integrations with major marketplaces such as Casas Bahia, Riachuelo, Mercado Livre, and Amazon.",
+                name: "Developed and improved integrations with major marketplaces such as Amazon, Mercado Livre, and Riachuelo.",
                 children: []
               },
               {
-                name: "Applied design patterns and principles like SOLID and DRY.",
+                name: "Developed unit and integration tests and applied design patterns and principles.",
                 children: []
               }
             ]
@@ -179,12 +179,15 @@ export const RESUMEEN: Resume = {
     "SQL Server",
     "React",
     "Razor",
+    "RabbitMQ",
     "React Native",
     "Microservices",
     "Docker",
     "Kubernetes",
-    "Requirements Analysis",
-    "Database Modeling"
+    "Database Modeling",
+    "Unit Tests",
+    "Integration Tests",
+    "Requirements Analysis"
   ],
   projects: [
     {

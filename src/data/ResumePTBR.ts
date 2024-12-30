@@ -67,11 +67,11 @@ export const RESUMEPTBR: Resume = {
             name: "Integrações com e-commerces",
             children: [
               {
-                name: "Desenvolvi e aperfeiçoei integrações com grandes marketplaces como Casas Bahia, Riachuelo, Mercado Livre e Amazon.",
+                name: "Desenvolvi e aperfeiçoei integrações com grandes marketplaces como Mercado Livre, Amazon e Riachuelo.",
                 children: []
               },
               {
-                name: "Apliquei design patterns e design principles como SOLID e DRY",
+                name: "Desenvolvi testes unitários e de integração e apliquei design patterns e design principles.",
                 children: []
               }
             ]
@@ -181,12 +181,15 @@ export const RESUMEPTBR: Resume = {
     "Sql Server",
     "React",
     "Razor",
+    "RabbitMQ",
     "React Native",
     "Microsserviços",
     "Docker",
     "Kubernetes",
-    "Análise de Requisitos",
     "Modelagem de banco",
+    "Testes Unitários",
+    "Testes de Integração",
+    "Análise de Requisitos"
   ],
   projects: [
     {
