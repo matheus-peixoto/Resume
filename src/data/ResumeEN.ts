@@ -215,6 +215,20 @@ export const RESUMEEN: Resume = {
       }
     },
     {
+      "title": "Monolithic to Microservices",
+      "techStack": [
+        "Backend",
+        ".NET Core",
+        "RabbitMQ"
+      ],
+      "description":
+        "Contributed to ongoing migration of monolithic architecture to microservices.",
+      "link": {
+        "label": "",
+        "href": ""
+      }
+    },
+    {
       title: "Mega Romaneio",
       techStack: ["Mobile", "React Native"],
       description: "Mobile project for delivery manifest control.",

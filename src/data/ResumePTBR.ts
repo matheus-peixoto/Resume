@@ -245,7 +245,7 @@ export const RESUMEPTBR: Resume = {
         "RabbitMQ"
       ],
       "description":
-        "Projeto para a troca de arquitetura da MegaMamute para microservices",
+        "Contribuí para a migração em andamento de arquitetura monolítica para microsserviços.",
       "link": {
         "label": "",
         "href": ""
