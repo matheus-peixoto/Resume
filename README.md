@@ -2,69 +2,69 @@
 
 # Resume
 
-Este projeto visa criar um currículo otimizado para ATS (Applicant Tracking Systems) e TAs (Talent Acquisition Systems). A ideia principal é apresentar o conteúdo de forma limpa, simples e direta, priorizando a legibilidade e a análise automatizada. A estrutura segue um formato de coluna única, com seções claras para palavras-chave, habilidades técnicas e demais informações relevantes, tudo de maneira concisa e minimalista.
+This project aims to create a resume optimized for ATS (Applicant Tracking Systems) and TAs (Talent Acquisition Systems). The main idea is to present the content in a clean, simple, and direct way, prioritizing readability and automated analysis. The structure follows a single-column format with clear sections for keywords, technical skills, and other relevant information, all presented in a concise and minimalist way.
 
-## Características
+## Features
 
-- **Foco em ATS e TAs:**  
-  O conteúdo, a estruturação e a marcação são pensados para melhorar a leitura por sistemas de recrutamento automatizados. Isso inclui o uso estratégico de palavras-chave, seções bem definidas e formatação clara que facilitam a identificação de experiências relevantes pelos ATS (Applicant Tracking Systems) e TAs (Talent Acquisition).
+- **ATS and TA focused:**  
+  The content, structure, and markup are designed to improve readability by automated recruitment systems. This includes the strategic use of keywords, well-defined sections, and clear formatting that help ATS (Applicant Tracking Systems) and talent acquisition teams identify relevant experience.
 
-- **Layout em coluna única:**  
-  A apresentação linear da informação, sem distrações visuais ou colunas múltiplas, auxilia ATS/TA a analisarem o documento sem perda de contexto. Isso também facilita a navegação e a leitura humana.
+- **Single-column layout:**  
+  The linear presentation of information, without visual distractions or multiple columns, helps ATS tools process the document without losing context. It also improves human readability and navigation.
 
-- **Bullet points descrevendo pontos importantes:**  
-  A utilização de listas pontuais para destacar responsabilidades, conquistas e habilidades-chave é altamente recomendada para ATS/TA. Esses sistemas costumam buscar termos específicos e pontos de destaque em formato de bullet points, o que aumenta a precisão na análise e torna o conteúdo mais escaneável para recrutadores humanos.
+- **Bullet points for key information:**  
+  The use of bullet lists to highlight responsibilities, achievements, and key skills is highly recommended for ATS/TA. These systems often search for specific terms and highlighted points in bullet format, which increases analysis accuracy and makes the content easier to scan for human recruiters.
 
-- **Minimalismo:**  
-  Ao reduzir elementos visuais supérfluos, o documento se torna mais fácil de ser “lido” por ferramentas automatizadas. Um design limpo e consistente garante que o foco permaneça no conteúdo, ajudando ATS/TA a extrair informações de forma mais eficiente.
+- **Minimalism:**  
+  By reducing unnecessary visual elements, the document becomes easier for automated tools to parse. A clean and consistent design ensures that the focus remains on the content, helping ATS/TA extract information more efficiently.
 
-- **Design responsivo:**  
-  Ajuste dinâmico a diferentes tamanhos de tela garante que o CV possa ser visualizado de forma legível em qualquer dispositivo, sem comprometer a estrutura otimizada para ATS/TA.
+- **Responsive design:**  
+  Dynamic adjustment to different screen sizes ensures the CV can be viewed clearly on any device without compromising the ATS/TA-optimized structure.
 
-- **Estilos otimizados para web e PDF:**  
-  O uso da classes para print do Tailwind para cada tipo de mídia (browser e PDF) assegura que a versão impressa mantenha a legibilidade, formatação adequada e hierarquia visual pensada para ATS/TA, assim como a versão online. Isso resulta em um currículo que tanto a máquina quanto o recrutador humano conseguem analisar com facilidade.
+- **Styles optimized for web and PDF:**  
+  Tailwind print classes for each media type (browser and PDF) ensure that the printed version maintains readability, proper formatting, and the visual hierarchy designed for ATS/TA, just like the online version. This results in a resume that both machines and human recruiters can easily analyze.
 
-## Como executar o projeto
+## How to run the project
 
-Este projeto é baseado em tecnologias web padrão. Você pode servir os arquivos localmente usando qualquer servidor estático ou instalar as dependências e rodar um ambiente de desenvolvimento caso um build system ou bundler estejam configurados.
+This project is based on standard web technologies. You can serve the files locally using any static server, or install the dependencies and run a development environment if a build system or bundler is configured.
 
-### Usando PNPM
+### Using PNPM
 
-1. **Instale o PNPM ou outro gerenciado de pacotes de sua escolha (as instruções decorrentes usam o pnpm como exemplo):**  
-   Caso não tenha o PNPM instalado, consulte a [documentação oficial](https://pnpm.io/installation).
+1. **Install PNPM or another package manager of your choice (the instructions below use pnpm as an example):**  
+   If you do not have PNPM installed, see the [official documentation](https://pnpm.io/installation).
 
-2. **Instale as dependências:**  
+2. **Install the dependencies:**  
    ```bash
    pnpm install
 
-3. **Inicie o servidor de desenvolvimento:**
+3. **Start the development server:**
    ```bash
    pnpm start
 
-Em seguida, acesse http://localhost:3000 no seu navegador.
+Then open http://localhost:3000 in your browser.
 
-## Como criar seu próprio currículo a partir deste projeto
+## How to create your own resume from this project
 
-  1. **Edite as informações do currículo**  
-  Os arquivos principais estão localizados no diretório `src/data`. Altere os arquivos `Resume*.ts` para atualizar seções, textos, palavras-chave e habilidades técnicas de acordo com o seu perfil profissional.
+  1. **Edit the resume data**  
+  The main files are located in the `src/data` directory. Modify the `Resume*.ts` files to update sections, text, keywords, and technical skills according to your professional profile.
 
-  2. **Adicione novos idiomas**  
-  - Crie um novo arquivo `Resume*.ts` para o idioma desejado.
+  2. **Add new languages**  
+  - Create a new `Resume*.ts` file for the desired language.
 
-  - Adicione este arquivo à re-exportação no arquivo `src/data/index.ts`.
+  - Add this file to the re-export in the `src/data/index.ts` file.
 
-  - Crie uma rota para o idioma seguindo o padrão existente:
+  - Create a route for the language following the existing pattern:
 
-    - Siga o padrão dentro de `src/data` e crie o conteúdo do currículo dessa nova língua, alemão por exemplo, herdando da interface Resume (ex.: `src/data/ResumeDE.ts`).
+    - Follow the pattern inside `src/data` and create the resume content for the new language, German for example, inheriting from the Resume interface (e.g. `src/data/ResumeDE.ts`).
 
-    - Adicione uma pasta nomeada como a abreviação do idioma (ex.: `de` para alemão gerando `src/app/de`). 
+    - Add a folder named with the language abbreviation (e.g. `de` for German generating `src/app/de`). 
     
-    - Dentro desta nova pasta crie um `page.tsx` seguindo o padrão já existente gerando um `src/app/de/page.tsx`.
+    - Inside this new folder create a `page.tsx` following the existing pattern generating `src/app/de/page.tsx`.
 
-    - No objeto `resumesMap`, inclua o mesmo nome da nova pasta como chave (ex.: `"de"`).
+    - In the `resumesMap` object include the same name as the new folder as the key (e.g. `"de"`).
 
-    Exemplo:
-    ```bash
+    Example:
+    ```ts
     import { Resume } from "@/types/resume";
     import { RESUMEEN } from './ResumeEN';
     import { RESUMEPTBR } from './ResumePTBR';
@@ -77,10 +77,11 @@ Em seguida, acesse http://localhost:3000 no seu navegador.
     };
 
     export default resumesMap;
+    ```
 
-  3. **Ajuste a formatação para PDF:**  
-  Ao imprimir o currículo pelo navegador (Ctrl+P ou Cmd+P) ou clicando no botão do rodapé, ajuste margens, orientações e outros detalhes da página para obter um resultado final otimizado para o seu currículo em PDF. Experimente diferentes configurações até alcançar a formatação desejada.
+  3. **Adjust the formatting for PDF:**  
+  When printing the resume from the browser (Ctrl+P or Cmd+P) or clicking the footer button, adjust margins, orientation, and other page details to achieve a final result optimized for your PDF resume. Experiment with different configurations until you reach the desired formatting.
 
-## Créditos e Inspiração
+## Credits and Inspiration
 
-Este projeto foi criado do zero com foco em otimização para ATS/TA e visual minimalista. A inspiração visual foi tirado do belíssimo projeto de [Bartosz Jarocki](https://github.com/BartoszJarocki/cv/). Todo o código é próprio e apenas o conceito visual foi referência para manter um padrão estético simplificado.
+This project was created from scratch with a focus on ATS/TA optimization and a minimalist visual style. The visual inspiration came from the beautiful project by [Bartosz Jarocki](https://github.com/BartoszJarocki/cv/). All the code is original and only the visual concept was used as a reference to maintain a simplified aesthetic standard.
