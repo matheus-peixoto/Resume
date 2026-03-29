@@ -18,9 +18,10 @@ export interface Contact {
 }
 
 export interface Education {
+    fullSchoolName: string | null;
     school: string;
     degree: string;
-    descriptionParagraphs: string[];
+    descriptionParagraphs: string[] | null;
     start: string;
     end: string | null;
 }

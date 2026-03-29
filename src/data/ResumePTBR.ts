@@ -35,6 +35,7 @@ export const RESUMEPTBR: Resume = {
   },
   educations: [
     {
+      fullSchoolName: null,
       school: "Fatec Zona Sul – Dom Paulo Evaristo Arns",
       degree: "Análise e Desenvolvimento de Sistemas",
       descriptionParagraphs: [

@@ -33,7 +33,8 @@ export const RESUMEEN: Resume = {
   },
   educations: [
     {
-      school: "Fatec Zona Sul – Dom Paulo Evaristo Arns",
+      fullSchoolName: "Fatec Zona Sul – Dom Paulo Evaristo Arns",
+      school: "Fatec Zona Sul",
       degree: "Systems Analysis and Development",
       descriptionParagraphs: [
         "Graduated in Systems Analysis and Development, I developed skills in database modeling and management, technical documentation, requirements analysis, as well as a solid understanding of programming logic and data structures."
@@ -65,7 +66,7 @@ export const RESUMEEN: Resume = {
             name: "E-commerce Integrations",
             children: [
               {
-                name: "Developed and improved integrations with major marketplaces such as Amazon, Mercado Livre, and Riachuelo.",
+                name: "Developed and improved integrations with major marketplaces such as Amazon, Mercado Livre, and Shopee.",
                 children: []
               },
               {
