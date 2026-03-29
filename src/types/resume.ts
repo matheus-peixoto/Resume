@@ -33,7 +33,7 @@ export interface BulletList {
 export interface Job {
     company: string;
     link: string | null;
-    workModels: string[]; // Changed to plural to match the context
+    workModels: string[];
     title: string;
     logo: string;
     start: string;
