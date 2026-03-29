@@ -36,7 +36,14 @@ export function WorkInfo({ job, style }: WorkInfoProps) {
                 <p className="text-sm print:text-xs print:text-[12px] font-medium mb-2">
                     {job.coreDescription}
                 </p>
-                <NestedList level={0} data={job.bulletList} />
+                {
+
+                    (
+                        job.bulletList === null ? null : job.bulletList.map((bulletList, index) => (
+                            <NestedList key={index} level={0} data={bulletList} />
+                        ))
+                    )
+                }
             </div>
         </div>
     );

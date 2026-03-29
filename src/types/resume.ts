@@ -40,7 +40,7 @@ export interface Job {
     end: string;
     descriptionParagraphs: string[];
     coreDescription: string;
-    bulletList: BulletList;
+    bulletList: BulletList[] | null;
 }
 
 export interface Project {
