@@ -8,8 +8,8 @@ interface NestedListProps {
 export function NestedList({ level, data }: NestedListProps) {
     const listTypeMap: { [key: number]: string } = {
         0: 'list-disc',
-        1: 'list-circle',
-        2: 'list-square'
+        1: 'list-square',
+        2: 'list-circle'
     }
 
     const getUlCSSType = (level: number): string | undefined => {
@@ -21,7 +21,7 @@ export function NestedList({ level, data }: NestedListProps) {
         const isLevelZero = level == 0;
         const fontAndMarginLeft = `${isLevelZero ? 'text-sm ml-3 print:ml-0' : 'text-xs ml-6'}`;
 
-        return `${getUlCSSType(level)} ${fontAndMarginLeft} mt-1`;
+        return `${getUlCSSType(level)} ${fontAndMarginLeft}`;
     }
 
     const getFontStyle = () => {
@@ -31,7 +31,7 @@ export function NestedList({ level, data }: NestedListProps) {
 
         return '';
     };
-
+    
     return (
         <ul className={getUlClassName(level)}>
             <li>
