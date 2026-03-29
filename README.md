@@ -1,4 +1,4 @@
-![Screenshot do site](./assets/resume.png)
+![Screenshot do site](./public/resume.png)
 
 # Resume
 
