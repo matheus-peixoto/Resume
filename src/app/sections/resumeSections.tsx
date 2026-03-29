@@ -17,7 +17,7 @@ export function ResumeSections({ resume }: ResumeProp) {
                 <WorkExperience resume={resume} />
                 <Education resume={resume} />
                 <Skills resume={resume} />
-                <Project resume={resume} />
+                {resume.projects != null ? <Project resume={resume} /> : null}
             </section>
         </main>
     );

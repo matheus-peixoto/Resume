@@ -68,7 +68,7 @@ export interface Resume {
     educations: Education[];
     jobs: Job[];
     skills: string[];
-    projects: Project[];
+    projects: Project[] | null;
 }
 
 export interface ResumeProp {
