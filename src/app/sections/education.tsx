@@ -3,12 +3,12 @@ import { ResumeProp } from "@/types/resume";
 export function Education({ resume }: ResumeProp) {
     return (
         <section className="print:mb-3 mb-8">
-            <div className="mb-2">
-                <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.education}</h2>
+            <div className="mb-2 print:mb-0">
+                <h2 className="print:text-lg text-xl font-bold text-black">{resume.sectionTitles.education}</h2>
             </div>
             {
                 resume.educations.map((education, index) => (
-                    <div key={index} className="mt-2">
+                    <div key={index} className="mt-0">
                         <div className="mb-1 flex justify-between">
                             <h3 className="font-semibold text-black">{education.school}</h3>
 

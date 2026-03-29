@@ -9,9 +9,9 @@ interface WorkInfoProps {
 
 export function WorkInfo({ job, style }: WorkInfoProps) {
     return (
-        <div className="mt-2 mb-4" style={style}>
-            <div className="flex justify-between mt-2">
-                <div className="flex flex-col sm:flex-row gap-2 mb-1 min-w-24">
+        <div className="mt-2 mb-4 print:mt-0 print:mb-1" style={style}>
+            <div className="flex justify-between mt-2 print:mt-0">
+                <div className="flex flex-col sm:flex-row gap-2 mb-1 print:mb-0 min-w-24">
                     <a href={job.link ?? undefined} className="hover:underline" target="_blank" >
                         <h3 className="font-semibold text-black">{job.company}</h3>
                     </a>
@@ -28,7 +28,7 @@ export function WorkInfo({ job, style }: WorkInfoProps) {
                 </span>
             </div>
             <div>
-                <div className="print:mb-2 mb-2.5">
+                <div className="print:mb-1 mb-2.5">
                     <h4 className="font-mono print:text-sm text-black leading-none print:leading-3 print:text-[12px]">
                         {job.title}
                     </h4>

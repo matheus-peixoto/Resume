@@ -5,8 +5,8 @@ export function Skills({ resume }: ResumeProp) {
     
     return (
         <section className="print:mb-3 mb-8">
-            <div className="mb-2">
-                <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.skills}</h2>
+            <div className="mb-2 print:mb-1">
+                <h2 className="text-1xl print:text-1xl font-bold text-black">{resume.sectionTitles.skills}</h2>
             </div>
             <div className="flex flex-wrap gap-1">
                 {
@@ -15,7 +15,7 @@ export function Skills({ resume }: ResumeProp) {
                             <span className="print:hidden text-white">
                                 {skill}
                             </span>
-                            <span className="hidden print:flex text-black">
+                            <span className="hidden print:flex text-black break-words">
                                 {skill} {index != lastSkillIndex && '|'}
                             </span>
                         </div>
