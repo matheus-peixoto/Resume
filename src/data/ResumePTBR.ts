@@ -60,9 +60,10 @@ export const RESUMEPTBR: Resume = {
         "Para estas demandas foram utilizado das tecnologias .Net com Asp .Net, Asp .Net Core, OAuth, JWT, Entity Framework e Sql Server para a criação de APIs REST, AWS S3, AWS EC2, AWS ROUTE 53 e AWS Elastic Beanstalk para deployes, configurações de hosting e armazenamento, React, React Native, Razor e Blazor para o front e aplicações mobile tendo sempre em vista melhores práticas e princípios como SOLID e design patterns seguindo aruiteturas como MVC e Clean Architecture.",
       ],
       coreDescription: "Na MegaMamute, uma empresa focada em vendas online, desempenhei um papel essencial no desenvolvimento de integrações com grandes e-commerces do Brasil, desenvolvimento de sistema dropshipping, além de manutenção e evolução de sistemas internos.",
-      bulletList: {
-        name: "Responsabilidades e Realizações",
-        children: [
+      bulletList: [
+        {
+          name: "Responsabilidades e Realizações",
+          children: [
           {
             name: "Integrações com e-commerces",
             children: [
@@ -123,8 +124,9 @@ export const RESUMEPTBR: Resume = {
               }
             ]
           }
-        ]
-      }
+          ]
+        }
+      ]
     },
     {
       company: "TechEleven.",
@@ -142,31 +144,33 @@ export const RESUMEPTBR: Resume = {
         "Criação de relatórios via Sql Server e Firebird com Views e Procedures."
       ],
       coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, participei no desenvolvimento de funcionalidades e aprimoramentos do ERP interno",
-      bulletList: {
-        name: "Responsabilidades e Realizações",
-        children: [
-          {
-            name: "Desenvolvi ferramentas de relatórios que exportam os dados em planilha.",
-            children: [],
-          },
-          {
-            name: "Criei relatórios com SQL Server e Firebird, utilizando Views e Procedures para ERP.",
-            children: [],
-          },
-          {
-            name: "Desenvolvi ferramenta de controle de ordem de chamado entre equipes para.",
-            children: [],
-          },
-          {
-            name: "Traduzi demandas dos usuários em especificações técnicas para implementação no sistema ERP.",
-            children: [],
-          },
-          {
-            name: "Implementei automações de tarefas operacionais utilizando Asp .Net Framework.",
-            children: [],
-          }
-        ]
-      }
+      bulletList: [
+        {
+          name: "Responsabilidades e Realizações",
+          children: [
+            {
+              name: "Desenvolvi ferramentas de relatórios que exportam os dados em planilha.",
+              children: [],
+            },
+            {
+              name: "Criei relatórios com SQL Server e Firebird, utilizando Views e Procedures para ERP.",
+              children: [],
+            },
+            {
+              name: "Desenvolvi ferramenta de controle de ordem de chamado entre equipes para.",
+              children: [],
+            },
+            {
+              name: "Traduzi demandas dos usuários em especificações técnicas para implementação no sistema ERP.",
+              children: [],
+            },
+            {
+              name: "Implementei automações de tarefas operacionais utilizando Asp .Net Framework.",
+              children: [],
+            }
+          ]
+        }
+      ]
     }
   ],
   skills: [
