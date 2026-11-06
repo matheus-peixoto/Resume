@@ -58,32 +58,33 @@ export function GeneralInfo({ resume }: ResumeProp) {
                     }
                 </div>
 
-                <div className="print:flex hidden flex-col gap-x-1">
-                    {
-                        resume.contact.email
-                        && (
-                            <a href={`mailto:${resume.contact.email}`} className="text-xs font-bold">
+                <div className="print:flex hidden flex-row items-center text-xs gap-1 whitespace-nowrap">
+                    {resume.contact.email && (
+                        <>
+                            <a href={`mailto:${resume.contact.email}`} className="hover:underline font-bold">
                                 {resume.contact.email}
                             </a>
-                        )
-                    }
+                            <span>|</span>
+                        </>
+                    )}
 
-                    {
-                        resume.contact.email
-                        && (
-                            <a href={`tel:${resume.contact.phone}`} className="text-xs font-bold">
+                    {resume.contact.phone && (
+                        <>
+                            <a href={`tel:${resume.contact.phone}`} className="hover:underline font-bold">
                                 {resume.contact.phone}
                             </a>
-                        )
-                    }
+                            <span>|</span>
+                        </>
+                    )}
 
-                    {
-                        resume.contact.socials.map(
-                            (social, index) => (
-                                <a key={index} className="text-xs font-bold" href={social.url}>{social.url}</a>
-                            )
-                        )
-                    }
+                    {resume.contact.socials.map((social, index) => (
+                        <span key={index} className="flex items-center gap-1">
+                            <a className="hover:underline font-bold" href={social.url}>
+                                {social.url}
+                            </a>
+                            {index < resume.contact.socials.length - 1 && <span>|</span>}
+                        </span>
+                    ))}
                 </div>
 
             </div>

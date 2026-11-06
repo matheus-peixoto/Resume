@@ -18,9 +18,10 @@ export interface Contact {
 }
 
 export interface Education {
+    fullSchoolName: string | null;
     school: string;
     degree: string;
-    descriptionParagraphs: string[];
+    descriptionParagraphs: string[] | null;
     start: string;
     end: string | null;
 }
@@ -33,14 +34,14 @@ export interface BulletList {
 export interface Job {
     company: string;
     link: string | null;
-    workModels: string[]; // Changed to plural to match the context
+    workModels: string[];
     title: string;
     logo: string;
     start: string;
     end: string;
     descriptionParagraphs: string[];
     coreDescription: string;
-    bulletList: BulletList;
+    bulletList: BulletList[] | null;
 }
 
 export interface Project {
@@ -68,7 +69,7 @@ export interface Resume {
     educations: Education[];
     jobs: Job[];
     skills: string[];
-    projects: Project[];
+    projects: Project[] | null;
 }
 
 export interface ResumeProp {

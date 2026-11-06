@@ -2,6 +2,8 @@ import { ProjectCard } from "@/components";
 import { ResumeProp } from "@/types/resume";
 
 export function Project({ resume }: ResumeProp) {
+    var projects = resume.projects!;
+
     return (
         <section>
             <div className="print:hidden">
@@ -10,7 +12,7 @@ export function Project({ resume }: ResumeProp) {
                 </div>
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     {
-                        resume.projects.map((proj, index) => (
+                        projects.map((proj, index) => (
                             <ProjectCard key={index} project={proj} />
                         ))
                     }
@@ -23,7 +25,7 @@ export function Project({ resume }: ResumeProp) {
                 </div>
                 <div className="flex flex-col gap-y-2">
                     {
-                        resume.projects.map((proj, index) => (
+                        projects.map((proj, index) => (
                             <ProjectCard key={index} project={proj} />
                         ))
                     }
