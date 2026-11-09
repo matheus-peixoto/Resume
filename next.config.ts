@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
   assetPrefix: basePath ? `${basePath}/` : '',
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        hostname: 'avatars.githubusercontent.com',
+        protocol: 'https',
+      },
+    ],
   },
   trailingSlash: true, // Required for proper static export on GitHub Pages
   env: {

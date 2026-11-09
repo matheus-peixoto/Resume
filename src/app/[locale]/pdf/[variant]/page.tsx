@@ -1,4 +1,4 @@
-import { ResumeSections } from "@/app/sections";
+import { ResumeSections } from "@/app/sections/resumeSections";
 import {
     getPdfResumeDefinition,
     pdfResumeDefinitions,

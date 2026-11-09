@@ -1,7 +1,6 @@
-import { Resume } from "@/types/resume";
+import type { Resume } from "@/types/resume";
 import { RESUMEEN } from "./ResumeEN";
 
-// One-page content is authored here. Common identity and contact fields come from the web resume.
 export const RESUMEEN1: Resume = {
     ...RESUMEEN,
     educations: RESUMEEN.educations.map((education) => ({

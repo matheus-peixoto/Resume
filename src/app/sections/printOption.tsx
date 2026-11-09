@@ -1,3 +1,5 @@
+"use client";
+
 import { FaFilePdf, FaPrint } from "react-icons/fa6";
 import { pdfResumeMetadata } from "@/data/pdfResumeMetadata.generated";
 
@@ -6,10 +8,6 @@ interface PrintOptionProps {
 }
 
 export function PrintOption({ locale }: PrintOptionProps) {
-    const openPrintDialog = () => {
-        window.print();
-    };
-
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
     const availablePdfs = pdfResumeMetadata
         .filter((definition) => definition.locale === locale)
@@ -30,7 +28,7 @@ export function PrintOption({ locale }: PrintOptionProps) {
             ))}
             <button
                 className="inline-flex items-center gap-1.5 rounded-md border border-gray-200 px-2 py-1 hover:bg-gray-50"
-                onClick={openPrintDialog}
+                onClick={() => window.print()}
                 type="button"
             >
                 <FaPrint size={16} />

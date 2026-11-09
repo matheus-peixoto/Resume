@@ -1,35 +1,17 @@
-import { ProjectCard } from "@/components";
-import { ResumeProp } from "@/types/resume";
+import { ProjectCard } from "@/components/ProjectCard";
+import { SectionHeading } from "@/components/SectionHeading";
+import type { ResumeProp } from "@/types/resume";
 
 export function Project({ resume }: ResumeProp) {
     const projects = resume.projects!;
 
     return (
         <section>
-            <div className="print:hidden">
-                <div className="mb-2">
-                    <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.projects}</h2>
-                </div>
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                    {
-                        projects.map((proj, index) => (
-                            <ProjectCard key={index} project={proj} />
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div className="hidden print:block">
-                <div className="mt-4 mb-2">
-                    <h2 className="text-xl print:text-lg font-bold text-black">{resume.sectionTitles.projects}</h2>
-                </div>
-                <div className="flex flex-col gap-y-2">
-                    {
-                        projects.map((proj, index) => (
-                            <ProjectCard key={index} project={proj} />
-                        ))
-                    }
-                </div>
+            <SectionHeading className="mb-2 print:mt-4" title={resume.sectionTitles.projects} />
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 print:flex print:flex-col print:gap-y-2">
+                {projects.map((project) => (
+                    <ProjectCard key={project.title} project={project} />
+                ))}
             </div>
         </section>
     );

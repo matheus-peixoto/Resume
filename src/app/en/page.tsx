@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import resumesMap from "@/data";
-import { Resume } from "@/types/resume";
 import { CompletePage } from "../sections/completePage";
 
-const resume: Resume = resumesMap["en"];
+const resume = resumesMap.en;
 
 export const metadata: Metadata = {
   title: resume.name + ' - Resume',

@@ -1,7 +1,7 @@
-import { Project } from "@/types/resume";
+import type { Project } from "@/types/resume";
 
 interface ProjectCardProps {
-    readonly project: Project
+    project: Project;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -17,11 +17,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 </p>
             </div>
             <div className="flex flex-wrap gap-1">
-                {
-                    project.techStack.map((tech, index) => (
-                        <span key={index} className="font-bold text-black bg-gray-100 text-xs rounded-md px-2 py-1">{tech}</span>
-                    ))
-                }
+                {project.techStack.map((tech) => (
+                    <span key={tech} className="font-bold text-black bg-gray-100 text-xs rounded-md px-2 py-1">{tech}</span>
+                ))}
             </div>
         </div>
     );

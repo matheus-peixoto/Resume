@@ -1,46 +1,29 @@
-import { BulletList } from "@/types/resume";
+import type { BulletList } from "@/types/resume";
 
 interface NestedListProps {
-    level: number,
-    data: BulletList
+    level: number;
+    data: BulletList;
 }
 
+const listStyles = ["list-disc", "list-square", "list-circle"];
+
+const getListClassName = (level: number) => {
+    const spacing = level === 0 ? "text-sm ml-3 print:ml-0" : "text-xs ml-6";
+    return `${listStyles[level % listStyles.length]} ${spacing}`;
+};
+
 export function NestedList({ level, data }: NestedListProps) {
-    const listTypeMap: { [key: number]: string } = {
-        0: 'list-disc',
-        1: 'list-square',
-        2: 'list-circle'
-    }
+    const hasChildren = data.children.length > 0;
 
-    const getUlCSSType = (level: number): string | undefined => {
-        level = level % Object.keys(listTypeMap).length
-        return listTypeMap[level];
-    };
-
-    const getUlClassName = (level: number): string => {
-        const isLevelZero = level == 0;
-        const fontAndMarginLeft = `${isLevelZero ? 'text-sm ml-3 print:ml-0' : 'text-xs ml-6'}`;
-
-        return `${getUlCSSType(level)} ${fontAndMarginLeft}`;
-    }
-
-    const getFontStyle = () => {
-        if (data.children.length > 0) {
-            return 'font-bold text-black';
-        }
-
-        return '';
-    };
-    
     return (
-        <ul className={getUlClassName(level)}>
+        <ul className={getListClassName(level)}>
             <li>
-                <span className={getFontStyle()}>
-                    {data.name + `${data.children.length > 0 ? ':' : ''}`}
+                <span className={hasChildren ? "font-bold text-black" : undefined}>
+                    {data.name}{hasChildren && ":"}
                 </span>
-                {data.children.map((child, index) =>
-                    <NestedList key={`${data.name}-${index}-${level}`} level={level + 1} data={child} />
-                )}
+                {data.children.map((child) => (
+                    <NestedList key={child.name} level={level + 1} data={child} />
+                ))}
             </li>
         </ul>
     );

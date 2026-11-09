@@ -1,7 +1,6 @@
-import { Resume } from "@/types/resume";
+import type { Resume } from "@/types/resume";
 import { RESUMEEN } from "./ResumeEN";
 
-// Two-page content is authored here independently from the one-page variant.
 export const RESUMEEN2: Resume = {
     ...RESUMEEN,
     educations: RESUMEEN.educations.map((education) => ({
@@ -69,12 +68,12 @@ export const RESUMEEN2: Resume = {
         "Kubernetes", "Database Modeling", "Unit Tests", "Integration Tests", "Requirements Analysis",
     ],
     projects: [
-        { title: "Dropshipping", techStack: ["Backend", "Frontend", "REST API", ".NET Core", "SQL"], description: "Dropshipping sales project for MegaMamute suppliers focused on furniture.", link: { label: "", href: "" } },
-        { title: "Mercado Livre", techStack: ["Backend", "ASP.NET Framework", "SQL", "REST API"], description: "Maintained the integration with Mercado Livre and improved product fulfillment.", link: { label: "", href: "" } },
-        { title: "Riachuelo and ZoomBuscapé - Mosaico", techStack: ["Backend", "ASP.NET Framework", "Webhook", "SQL", "REST API"], description: "Integrated Riachuelo and ZoomBuscapé marketplaces from start to finish.", link: { label: "", href: "" } },
-        { title: "Monolithic to Microservices", techStack: ["Backend", ".NET Core", "RabbitMQ"], description: "Contributed to ongoing migration of monolithic architecture to microservices.", link: { label: "", href: "" } },
-        { title: "Mega Romaneio", techStack: ["Mobile", "React Native"], description: "Mobile project for delivery manifest control.", link: { label: "", href: "" } },
-        { title: "Resume", techStack: ["Personal Project", "React"], description: "Personal project for building a minimalist resume considering ATS and TA evaluations.", link: { label: "", href: "" } },
+        { title: "Dropshipping", techStack: ["Backend", "Frontend", "REST API", ".NET Core", "SQL"], description: "Dropshipping sales project for MegaMamute suppliers focused on furniture." },
+        { title: "Mercado Livre", techStack: ["Backend", "ASP.NET Framework", "SQL", "REST API"], description: "Maintained the integration with Mercado Livre and improved product fulfillment." },
+        { title: "Riachuelo and ZoomBuscapé - Mosaico", techStack: ["Backend", "ASP.NET Framework", "Webhook", "SQL", "REST API"], description: "Integrated Riachuelo and ZoomBuscapé marketplaces from start to finish." },
+        { title: "Monolithic to Microservices", techStack: ["Backend", ".NET Core", "RabbitMQ"], description: "Contributed to ongoing migration of monolithic architecture to microservices." },
+        { title: "Mega Romaneio", techStack: ["Mobile", "React Native"], description: "Mobile project for delivery manifest control." },
+        { title: "Resume", techStack: ["Personal Project", "React"], description: "Personal project for building a minimalist resume considering ATS and TA evaluations." },
     ],
 };
 
