@@ -26,6 +26,7 @@ const inspectPdf = async (buffer) => {
 
 const findValidationIssues = ({ buffer, inspection, maximumFileSize, profile, requiredText }) => {
     const issues = [];
+    const normalizedPdfText = inspection.text.toLocaleLowerCase();
 
     if (inspection.pageCount !== profile.pages) {
         issues.push(`expected ${profile.pages} page(s), generated ${inspection.pageCount}`);
@@ -36,7 +37,7 @@ const findValidationIssues = ({ buffer, inspection, maximumFileSize, profile, re
     }
 
     for (const text of requiredText.map(normalizeText).filter(Boolean)) {
-        if (!inspection.text.includes(text)) {
+        if (!normalizedPdfText.includes(text.toLocaleLowerCase())) {
             issues.push(`missing extractable heading: ${text}`);
         }
     }

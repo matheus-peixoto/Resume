@@ -6,16 +6,43 @@ import { Project } from "./project";
 import { Skills } from "./skill";
 import { WorkExperience } from "./workExperience";
 
-export function ResumeSections({ resume }: ResumeProp) {
+interface ResumeSectionsProps extends ResumeProp {
+    pageCount?: number;
+}
+
+export function ResumeSections({ resume, pageCount }: ResumeSectionsProps) {
+    const profileAndWork = (
+        <>
+            <GeneralInfo resume={resume} />
+            <About resume={resume} />
+            <WorkExperience resume={resume} />
+        </>
+    );
+    const supportingSections = (
+        <>
+            <Education resume={resume} />
+            <Skills resume={resume} />
+            {resume.projects && <Project resume={resume} />}
+        </>
+    );
+
     return (
-        <main className="resume-document text-gray-700 font-mono container mx-auto overflow-auto p-4 print:p-0 md:px-8 md:py-5 mb-11 print:mb-0">
-            <section className="resume-sheet print:mx-0 print:max-w-none mx-auto max-w-2xl bg-white">
-                <GeneralInfo resume={resume} />
-                <About resume={resume} />
-                <WorkExperience resume={resume} />
-                <Education resume={resume} />
-                <Skills resume={resume} />
-                {resume.projects && <Project resume={resume} />}
+        <main className="resume-document container mx-auto mb-11 overflow-auto p-4 text-body print:mb-0 print:p-0 md:px-8 md:py-16">
+            <section
+                className="resume-sheet mx-auto flex max-w-2xl flex-col gap-y-8 print:mx-0 print:max-w-none print:gap-y-3"
+                data-page-count={pageCount}
+            >
+                {pageCount === 2 ? (
+                    <>
+                        <div className="resume-page">{profileAndWork}</div>
+                        <div className="resume-page">{supportingSections}</div>
+                    </>
+                ) : (
+                    <>
+                        {profileAndWork}
+                        {supportingSections}
+                    </>
+                )}
             </section>
         </main>
     );

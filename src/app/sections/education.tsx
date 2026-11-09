@@ -1,43 +1,43 @@
 import type { ResumeProp } from "@/types/resume";
 import { SectionHeading } from "@/components/SectionHeading";
+import { getSpacingStyle } from "@/lib/resumeLayout";
 
 export function Education({ resume }: ResumeProp) {
     return (
-        <section className="mb-8 print:mb-3">
+        <section
+            className="resume-section flex min-h-0 flex-col gap-y-3 print:gap-y-1"
+            style={getSpacingStyle(resume.educations.length)}
+        >
             <SectionHeading title={resume.sectionTitles.education} />
 
+            <div className="education-list space-y-4 print:space-y-0">
             {resume.educations.map((education, index) => {
                 const description = education.descriptionParagraphs?.[0];
 
                 return (
-                    <div key={index}>
-                        <div className="mb-1 flex justify-between">
-                            <div className="print:hidden">
-                                <h3 className="font-semibold text-black">
-                                    {education.fullSchoolName ?? education.school}
-                                </h3>
-                                <h4 className="font-mono text-black leading-none print:text-[12px]">
-                                    {education.degree}
-                                </h4>
-                            </div>
-
-                            <h3 className="hidden print:block font-semibold text-black">
-                                {education.school} - {education.degree}
+                    <article className="education-entry" key={index}>
+                        <div className="flex items-baseline justify-between gap-x-3">
+                            <h3 className="text-sm font-medium leading-snug text-foreground print:leading-none">
+                                {education.fullSchoolName ?? education.school}
                             </h3>
-
-                            <span className="inline-flex items-center text-sm">
+                            <span className="shrink-0 text-xs text-meta print:text-[9px] print:leading-tight">
                                 {education.start} - {education.end}
                             </span>
                         </div>
 
+                        <p className="mt-1.5 text-sm text-body print:mt-1 print:text-[11px] print:leading-tight">
+                            {education.degree}
+                        </p>
+
                         {description && (
-                            <p className="text-sm print:hidden">
+                            <p className="mt-1 text-xs text-body print:hidden">
                                 {description}
                             </p>
                         )}
-                    </div>
+                    </article>
                 );
             })}
+            </div>
         </section>
     );
 }

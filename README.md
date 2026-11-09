@@ -47,7 +47,7 @@ Then open http://localhost:3000 in your browser.
 
 ## Develop and generate PDFs
 
-The project generates deterministic A4 PDFs with `0.125in` margins, selectable text, and validated page counts. The available languages and page counts are discovered from `src/data`; they are not hard-coded in the PDF script.
+The project generates deterministic A4 PDFs with `0.225in` margins, selectable text, and validated page counts. The available languages and page counts are discovered from `src/data`; they are not hard-coded in the PDF script.
 
 1. Install Chromium once:
    ```bash
