@@ -6,6 +6,35 @@ export interface SectionTitles {
     workExperience: string;
 }
 
+export interface CommandMenuTranslations {
+    title: string;
+    searchPlaceholder: string;
+    noResults: string;
+    openHint: string;
+    close: string;
+    back: string;
+    sections: {
+        actions: string;
+        links: string;
+        theme: string;
+        languages: string;
+    };
+    pdf: {
+        action: string;
+        heading: string;
+        fileNameLabel: string;
+        save: string;
+        saving: string;
+        saveError: string;
+        onePage: string;
+        multiplePages: string;
+    };
+    theme: {
+        light: string;
+        dark: string;
+    };
+}
+
 export interface Social {
     name: string;
     url: string;
@@ -37,7 +66,6 @@ export interface Job {
     coreDescription: string;
     end: string;
     link: string | null;
-    workModels: string[];
     start: string;
     title: string;
 }
@@ -49,6 +77,7 @@ export interface Project {
 }
 
 export interface Resume {
+    commandMenu?: CommandMenuTranslations;
     contact: Contact;
     educations: Education[];
     jobs: Job[];

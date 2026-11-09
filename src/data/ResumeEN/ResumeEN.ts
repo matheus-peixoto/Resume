@@ -1,7 +1,9 @@
 import type { Resume } from "@/types/resume";
+import { COMMAND_MENU_EN } from "./CommandMenuEN";
 
 export const RESUMEEN: Resume = {
   resumeLanguage: "English",
+  commandMenu: COMMAND_MENU_EN,
   name: "Matheus Peixoto Silva",
   location: "São Paulo, SP, Brazil",
   locationLink: "https://google.com/maps/?q=S%C3%A3o%20Paulo%2C%20S%C3%A3o%20Paulo%2C%20Brazil",
@@ -37,17 +39,16 @@ export const RESUMEEN: Resume = {
       descriptionParagraphs: [
         "Graduated in Systems Analysis and Development, I developed skills in database modeling and management, technical documentation, requirements analysis, as well as a solid understanding of programming logic and data structures."
       ],
-      start: "June 2019",
-      end: "June 2022",
+      start: "2019",
+      end: "2022",
     },
   ],
   jobs: [
     {
       company: "MegaMamute",
       link: "https://www.megamamute.com.br/",
-      workModels: ["Remote"],
       title: "Software Developer",
-      start: "June 2021",
+      start: "2021",
       end: "Present",
       coreDescription: "At MegaMamute, a company focused on online sales, I played a key role in developing e-commerce integrations, a dropshipping system, and in maintaining and evolving internal systems.",
       bulletList: [
@@ -121,10 +122,9 @@ export const RESUMEEN: Resume = {
     {
       company: "TechEleven",
       link: null,
-      workModels: ["On-site", "Contract"],
       title: ".NET Developer",
-      start: "March 2021",
-      end: "June 2021",
+      start: "2021",
+      end: "2021",
       coreDescription: "As a .NET developer at Tech Eleven, a start-up focused on technological solutions and in-house software, I contributed to the development and improvement of ERP features.",
       bulletList: [
         {

@@ -8,8 +8,8 @@ interface WorkInfoProps {
 
 export function WorkInfo({ job }: WorkInfoProps) {
     return (
-        <article className="work-entry" style={getSpacingStyle(getJobSpacingSlots(job))}>
-            <div className="flex items-baseline justify-between gap-x-3">
+        <article className="work-entry w-full" style={getSpacingStyle(getJobSpacingSlots(job))}>
+            <div className="flex w-full items-baseline gap-x-3">
                 <div className="min-w-24">
                     {job.link ? (
                         <a href={job.link} className="hover:underline" rel="noreferrer" target="_blank">
@@ -19,7 +19,7 @@ export function WorkInfo({ job }: WorkInfoProps) {
                         <h3 className="text-sm font-medium leading-snug text-foreground print:leading-none">{job.company}</h3>
                     )}
                 </div>
-                <span className="shrink-0 text-xs text-meta print:text-[9px] print:leading-tight">
+                <span className="ml-auto shrink-0 text-sm text-foreground print:text-[11px] print:leading-tight">
                     {`${job.start} - ${job.end}`}
                 </span>
             </div>
@@ -33,11 +33,6 @@ export function WorkInfo({ job }: WorkInfoProps) {
                 {job.bulletList?.map((bullet) => (
                     <NestedList key={bullet.name} level={0} data={bullet} />
                 ))}
-                {job.workModels.length > 0 && (
-                    <p className="pt-1 text-xs text-muted print:pt-0.5 print:text-[9px] print:leading-tight">
-                        {job.workModels.join(" · ")}
-                    </p>
-                )}
             </div>
         </article>
     );

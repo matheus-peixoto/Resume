@@ -1,7 +1,9 @@
 import type { Resume } from "@/types/resume";
+import { COMMAND_MENU_PTBR } from "./CommandMenuPTBR";
 
 export const RESUMEPTBR: Resume = {
   resumeLanguage: "Português",
+  commandMenu: COMMAND_MENU_PTBR,
   name: "Matheus Peixoto Silva",
   location: "São Paulo, SP, Brasil",
   locationLink: "https://google.com/maps/?q=S%C3%A3o%20Paulo%2C%20S%C3%A3o%20Paulo%2C%20Brazil",
@@ -39,17 +41,16 @@ export const RESUMEPTBR: Resume = {
       descriptionParagraphs: [
         "Graduado em Análise e Desenvolvimento de Sistemas, desenvolvi competências em modelagem e gerenciamento de bancos de dados, elaboração de documentação técnica, análise de requisitos, além de sólida compreensão de lógica de programação e estrutura de dados."
       ],
-      start: "Junho de 2019",
-      end: "Junho de 2022",
+      start: "2019",
+      end: "2022",
     }
   ],
   jobs: [
     {
       company: "MegaMamute",
       link: "https://www.megamamute.com.br/",
-      workModels: ["Remoto"],
       title: "Analista Desenvolvedor",
-      start: "Junho de 2021",
+      start: "2021",
       end: "Atual",
       coreDescription: "Na MegaMamute, uma empresa focada em vendas online, desempenhei um papel essencial no desenvolvimento de integrações com grandes e-commerces do Brasil, desenvolvimento de sistema dropshipping, além de manutenção e evolução de sistemas internos.",
       bulletList: [
@@ -123,10 +124,9 @@ export const RESUMEPTBR: Resume = {
     {
       company: "TechEleven.",
       link: null,
-      workModels: ["Presencial", "Terceirizado"],
       title: "Desenvolvedor .Net",
-      start: "Março de 2021",
-      end: "Junho de 2021",
+      start: "2021",
+      end: "2021",
       coreDescription: "Como desenvolvedor .Net na Tech Eleven, uma start-up voltada a soluções tecnológicas e in-house software, participei no desenvolvimento de funcionalidades e aprimoramentos do ERP interno",
       bulletList: [
         {

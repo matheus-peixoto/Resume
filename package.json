@@ -20,6 +20,8 @@
     "pdf:publish": "node scripts/generate-pdfs.mjs --output-dir public/pdfs"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "1.3.1",
+    "cmdk": "1.1.1",
     "geist": "^1.7.2",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
