@@ -1,26 +1,21 @@
 import type { ResumeProp } from "@/types/resume";
 import { SectionHeading } from "@/components/SectionHeading";
+import { getSpacingStyle } from "@/lib/resumeLayout";
 
 export function Skills({ resume }: ResumeProp) {
-    const lastSkillIndex = resume.skills.length - 1;
-    
     return (
-        <section className="print:mb-3 mb-8">
-            <SectionHeading className="mb-2 print:mb-1" title={resume.sectionTitles.skills} />
-            <div className="flex flex-wrap gap-1">
-                {
-                    resume.skills.map((skill, index) => (
-                        <div key={skill} className="rounded-md bg-gray-700 text-xs py-1 px-2 print:p-0 print:bg-transparent print:rounded-none">
-                            <span className="print:hidden text-white">
-                                {skill}
-                            </span>
-                            <span className="hidden print:flex text-black break-words">
-                                {skill} {index !== lastSkillIndex && '|'}
-                            </span>
-                        </div>
-                    ))
-                }
-            </div>
+        <section className="resume-section flex min-h-0 flex-col gap-y-3 print:gap-y-1" style={getSpacingStyle(1)}>
+            <SectionHeading title={resume.sectionTitles.skills} />
+            <ul className="section-content flex flex-wrap content-center text-sm leading-relaxed text-body print:text-[10px] print:leading-snug" aria-label={resume.sectionTitles.skills}>
+                {resume.skills.map((skill, index) => (
+                    <li className="inline whitespace-nowrap" key={skill}>
+                        {skill}
+                        {index < resume.skills.length - 1 && (
+                            <span className="whitespace-normal text-muted" aria-hidden="true">{"\u00a0· "}</span>
+                        )}
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }
