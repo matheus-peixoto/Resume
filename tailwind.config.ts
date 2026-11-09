@@ -12,6 +12,7 @@ export default {
     extend: {
       colors: {
         background: colorRole("bg"),
+        heading: colorRole("heading"),
         foreground: colorRole("ink"),
         meta: colorRole("meta"),
         body: colorRole("body"),

@@ -90,13 +90,16 @@ The project generates deterministic A4 PDFs with `0.225in` margins, selectable t
    These are independent authored resumes rather than filters that hide sections from one shared profile.
 
 3. **Add another page-count variant**
-   Copy an existing numbered file in the appropriate language folder and use the page count in its name. For example, `ResumeEN3.ts` automatically creates the `/en/pdf/3-page/` route, download button, output filename, and three-page validation target. Run `pnpm resume:discover` if you want to refresh the generated registry immediately; the normal dev, build, and PDF commands do this automatically.
+   Copy an existing numbered file in the appropriate language folder and use the page count in its name. For example, `ResumeEN3.ts` automatically creates the `/en/pdf/3-page/` route, command-menu PDF option, output filename, and three-page validation target. Run `pnpm resume:discover` if you want to refresh the generated registry immediately; the normal dev, build, and PDF commands do this automatically.
 
 4. **Add another language**
    Create a `src/data/ResumeXX` folder following an existing folder. Its `resume.config.json` declares the locale, filename prefix, and normal website file. Add one or more numbered files using that prefix. The discovery script then creates all PDF routes and metadata automatically. A normal website route for the locale still needs a corresponding page under `src/app`.
+
+5. **Translate the command menu**
+   Add a command-menu translation file beside the language's resume data, following `CommandMenuEN.ts` or `CommandMenuPTBR.ts`. Import that object into the language's normal website resume and assign it to the optional `commandMenu` property. Languages without their own menu translation use English as the fallback.
 
 The generated registry, metadata, and manifest in `src/data` should not be edited manually. Page size and print margins are defined in `src/app/globals.css`.
 
 ## Credits and Inspiration
 
-This project was created from scratch with a focus on ATS/TA optimization and a minimalist visual style. The visual inspiration came from the beautiful project by [Bartosz Jarocki](https://github.com/BartoszJarocki/cv/). All the code is original and only the visual concept was used as a reference to maintain a simplified aesthetic standard.
+This project began as a personalized adaptation of [Bartosz Jarocki's CV](https://github.com/BartoszJarocki/cv/), whose typography, minimalist presentation, and command-menu interaction remain important design references. It has since evolved with its own localized content model, independently authored page-count variants, automated PDF generation and validation, dynamic print layouts, and theme-aware interface.

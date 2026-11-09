@@ -67,6 +67,7 @@ const generateProfile = async ({
     const page = await browser.newPage();
 
     try {
+        await page.emulateMedia({ media: "print" });
         const response = await page.goto(`${baseUrl}${profile.route}`, { waitUntil: "networkidle" });
 
         if (!response?.ok()) {
