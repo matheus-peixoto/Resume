@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      geist:
+        specifier: ^1.7.2
+        version: 1.9.2(next@15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))
       next:
         specifier: 15.0.3
         version: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -940,6 +943,11 @@ packages:
 
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
+
+  geist@1.9.2:
+    resolution: {integrity: sha512-UU1x2q5Khob0+i4csFvXk1Ki4DePdu7xISuXyEcj1tzQMg64oN7Kbuy4e5z5QhcUWbbvOMJNs3ZxYQqpsEMV3w==}
+    peerDependencies:
+      next: '>=13.2.0'
 
   get-intrinsic@1.2.4:
     resolution: {integrity: sha512-5uYhsJH8VJBTv7oslg4BznJYhDoRI6waYCxMmCdnTrcCrHA/fCFKoTFz2JKKE0HdDFUF7/oQuhzumXJK7paBRQ==}
@@ -2765,6 +2773,10 @@ snapshots:
       functions-have-names: 1.2.3
 
   functions-have-names@1.2.3: {}
+
+  geist@1.9.2(next@15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)):
+    dependencies:
+      next: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
 
   get-intrinsic@1.2.4:
     dependencies:

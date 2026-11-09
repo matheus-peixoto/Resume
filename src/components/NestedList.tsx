@@ -8,8 +8,10 @@ interface NestedListProps {
 const listStyles = ["list-disc", "list-square", "list-circle"];
 
 const getListClassName = (level: number) => {
-    const spacing = level === 0 ? "text-sm ml-3 print:ml-0" : "text-xs ml-6";
-    return `${listStyles[level % listStyles.length]} ${spacing}`;
+    const spacing = level === 0 ? "ml-0" : level === 1 ? "ml-4" : "ml-5";
+    const marker = level === 0 ? "list-none" : listStyles[(level - 1) % listStyles.length];
+    const hierarchy = level === 0 ? "nested-list nested-list-root" : "nested-list";
+    return `${hierarchy} ${marker} ${spacing} list-outside text-xs text-body print:text-[9px] print:leading-tight`;
 };
 
 export function NestedList({ level, data }: NestedListProps) {
@@ -18,7 +20,7 @@ export function NestedList({ level, data }: NestedListProps) {
     return (
         <ul className={getListClassName(level)}>
             <li>
-                <span className={hasChildren ? "font-bold text-black" : undefined}>
+                <span className={hasChildren ? "font-medium text-foreground" : undefined}>
                     {data.name}{hasChildren && ":"}
                 </span>
                 {data.children.map((child) => (

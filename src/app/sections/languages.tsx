@@ -1,4 +1,5 @@
 import resumes from "@/data";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
 
 const languages = Object.entries(resumes).map(([route, resume]) => ({
@@ -8,16 +9,17 @@ const languages = Object.entries(resumes).map(([route, resume]) => ({
 
 export function Languages() {
     return (
-        <header className="border-b flex gap-2 p-1 justify-end print:hidden px-4">
+        <header className="flex items-center justify-end gap-2 border-b border-border px-4 py-1 print:hidden">
             {languages.map(({ name, route }) => (
                 <Link
                     key={route}
                     href={`/${route}`}
-                    className="text-gray-500 text-center rounded-md border border-gray-200 px-1 py-0.5 hover:text-gray-600"
+                    className="rounded-md border border-border px-1.5 py-0.5 text-center text-xs text-muted transition-colors hover:bg-wash hover:text-foreground"
                 >
                     {name}
                 </Link>
             ))}
+            <ThemeToggle />
         </header>
     );
 }

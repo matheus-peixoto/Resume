@@ -6,21 +6,18 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="project-card flex flex-col justify-between border rounded-md p-2 print:px-2 print:pb-1">
+        <article className="project-card flex flex-col justify-between">
             <div>
-                <div className="flex font-semibold text-black mb-1 items-center gap-1">
-                    <h3>{project.title}</h3>
-                    <span className="block size-1 rounded-full bg-green-500"></span>
-                </div>
-                <p className="text-xs mb-2">
+                <h3 className="text-sm font-medium leading-snug text-foreground print:leading-none">
+                    {project.title}
+                </h3>
+                <p className="mt-1 text-pretty text-xs text-body print:mt-0.5 print:text-[9px] print:leading-tight">
                     {project.description}
                 </p>
             </div>
-            <div className="flex flex-wrap gap-1">
-                {project.techStack.map((tech) => (
-                    <span key={tech} className="font-bold text-black bg-gray-100 text-xs rounded-md px-2 py-1">{tech}</span>
-                ))}
-            </div>
-        </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted print:mt-0.5 print:text-[8px] print:leading-snug">
+                {project.techStack.join(" · ")}
+            </p>
+        </article>
     );
 }

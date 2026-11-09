@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from "react";
-import { LuGlobe, LuMail, LuPhone } from "react-icons/lu";
+import { LuMail, LuMapPin, LuPhone } from "react-icons/lu";
 import Image from "next/image";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
@@ -12,7 +12,7 @@ interface ContactLink {
     openInNewTab?: boolean;
 }
 
-const iconButtonClass = "inline-flex justify-center items-center border border-gray-200 w-8 h-8 rounded-md transition duration-200 hover:bg-gray-100";
+const iconButtonClass = "inline-flex size-8 items-center justify-center rounded-md text-muted transition-colors hover:bg-wash hover:text-foreground";
 const socialIcons: Record<string, ReactNode> = {
     github: <GitHubIcon />,
     linkedin: <LinkedInIcon />,
@@ -43,25 +43,27 @@ export function GeneralInfo({ resume }: ResumeProp) {
     const contactLinks = getContactLinks(resume.contact);
 
     return (
-        <section className="flex justify-between items-center print:mb-3 mb-8">
-            <div>
-                <h1 className="text-2xl font-bold text-black">{resume.name}</h1>
-                <p className="print:max-w-full max-w-md text-pretty text-sm my-2 print:mt-1 print:mb-2 print:text-[12px]">
+        <header className="flex items-center justify-between gap-x-6">
+            <div className="flex-1 space-y-1.5 print:space-y-1">
+                <h1 className="font-pixel text-[28px] leading-none text-foreground sm:text-[32px] print:text-[26px]">
+                    {resume.name}
+                </h1>
+                <p className="max-w-md text-pretty text-sm text-body print:max-w-full print:text-[11px] print:leading-tight">
                     {resume.shortDescription}
                 </p>
-                <p className="max-w-md items-center text-pretty text-xs mb-1">
+                <p className="max-w-md text-pretty text-xs text-foreground">
                     <a
                         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                         href={resume.locationLink}
                         rel="noreferrer"
                         target="_blank"
                     >
-                        <LuGlobe size={12} />
+                        <LuMapPin aria-hidden="true" size={12} />
                         {resume.location}
                     </a>
                 </p>
 
-                <div className="flex gap-x-1 print:hidden">
+                <div className="flex gap-x-1 pt-1 print:hidden">
                     {contactLinks.filter(({ icon }) => icon).map((link) => (
                         <a
                             aria-label={link.label}
@@ -76,11 +78,11 @@ export function GeneralInfo({ resume }: ResumeProp) {
                     ))}
                 </div>
 
-                <div className="print:flex hidden flex-row items-center text-xs gap-1 whitespace-nowrap">
+                <div className="hidden flex-wrap gap-x-2 text-xs text-muted print:flex print:text-[10px] print:leading-tight">
                     {contactLinks.map((link, index) => (
                         <Fragment key={link.href}>
-                            {index > 0 && <span>|</span>}
-                            <a className="hover:underline font-bold" href={link.href}>
+                            {index > 0 && <span aria-hidden="true">/</span>}
+                            <a className="text-foreground underline" href={link.href}>
                                 {link.label}
                             </a>
                         </Fragment>
@@ -88,16 +90,16 @@ export function GeneralInfo({ resume }: ResumeProp) {
                 </div>
             </div>
 
-            <div className="w-full h-full max-w-28 max-h-28 print:hidden">
+            <div className="size-28 shrink-0 print:size-24">
                 <Image
                     alt={`${resume.name} photo`}
-                    className="rounded-md"
+                    className="size-full rounded-xl bg-wash object-cover ring-1 ring-border"
                     height={112}
                     priority
                     src={resume.ownerImgUrl}
                     width={112}
                 />
             </div>
-        </section>
+        </header>
     );
 }

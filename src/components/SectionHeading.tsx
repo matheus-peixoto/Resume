@@ -3,10 +3,12 @@ interface SectionHeadingProps {
     title: string;
 }
 
-export function SectionHeading({ className = "mb-2 print:mb-0", title }: SectionHeadingProps) {
+export function SectionHeading({ className = "", title }: SectionHeadingProps) {
     return (
-        <div className={className}>
-            <h2 className="text-xl print:text-lg font-bold text-black">{title}</h2>
-        </div>
+        <h2
+            className={`resume-section-heading text-sm lowercase leading-[1.4] text-foreground print:leading-tight ${className}`}
+        >
+            {title}
+        </h2>
     );
 }

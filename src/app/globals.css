@@ -2,16 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3, h4 {
-    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@layer base {
+    :root {
+        --bg: 98.4% 0.0025 95;
+        --ink: 12% 0.006 70;
+        --meta: 20% 0.006 70;
+        --body: 40% 0.006 70;
+        --faint: 54% 0.005 70;
+        --rule: 91% 0.004 80;
+        --wash: 95.6% 0.004 85;
+        --pdf-page-margin: 0.225in;
+        --pdf-printable-height: calc(297mm - var(--pdf-page-margin) - var(--pdf-page-margin));
+        --pdf-layout-height: calc(var(--pdf-printable-height) - 0.5mm);
+        color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+        --bg: 15.5% 0.004 70;
+        --ink: 94% 0.004 80;
+        --meta: 84% 0.004 80;
+        --body: 76% 0.004 80;
+        --faint: 60% 0.004 80;
+        --rule: 27% 0.004 70;
+        --wash: 20% 0.004 70;
+        color-scheme: dark;
+    }
+
+    body {
+        @apply bg-background font-mono text-foreground antialiased;
+    }
+
+    ::selection {
+        @apply bg-foreground text-background;
+    }
+
+    :focus-visible {
+        @apply outline outline-1 outline-offset-[3px] outline-foreground;
+    }
+
+    a {
+        @apply decoration-muted underline-offset-[.28em];
+    }
 }
 
 @page {
     size: A4;
-    margin: 0.125in;
+    margin: var(--pdf-page-margin);
 }
 
 @media print {
+    :root {
+        --bg: 100% 0 0;
+        --ink: 8% 0.004 70;
+        --meta: 14% 0.004 70;
+        --body: 32% 0.004 70;
+        --faint: 44% 0.004 70;
+        --rule: 88% 0.003 80;
+        --wash: 96% 0.002 80;
+    }
+
     html,
     body {
         background: white !important;
@@ -19,16 +68,90 @@ h1, h2, h3, h4 {
         -webkit-print-color-adjust: exact;
     }
 
-    ul {
-        list-style-position: inside;
-    }
-
     .resume-sheet {
         margin: 0 !important;
         max-width: none !important;
     }
 
+    .resume-sheet[data-page-count="1"] {
+        min-height: var(--pdf-layout-height);
+        justify-content: flex-start;
+    }
+
+    .resume-sheet[data-page-count="2"] {
+        display: block;
+    }
+
+    .resume-sheet[data-page-count="2"] .resume-page {
+        display: flex;
+        height: var(--pdf-layout-height);
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        break-inside: avoid-page;
+        break-after: page;
+    }
+
+    .resume-sheet[data-page-count="2"] .resume-page:last-child {
+        break-after: auto;
+    }
+
+    .resume-sheet[data-page-count] .resume-section {
+        flex-grow: var(--spacing-slots, 1);
+    }
+
+    .resume-sheet[data-page-count] .section-content,
+    .resume-sheet[data-page-count] .work-list,
+    .resume-sheet[data-page-count] .education-list,
+    .resume-sheet[data-page-count] .projects-grid {
+        flex: 1 1 auto;
+    }
+
+    .resume-sheet[data-page-count] .work-list,
+    .resume-sheet[data-page-count] .education-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .resume-sheet[data-page-count] .work-entry {
+        display: flex;
+        flex-grow: var(--spacing-slots, 1);
+        flex-direction: column;
+    }
+
+    .resume-sheet[data-page-count] .work-entry-content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .resume-sheet[data-page-count] .work-entry-content > .nested-list-root {
+        display: flex;
+        flex: 1 1 auto;
+    }
+
+    .resume-sheet[data-page-count] .nested-list-root > li,
+    .resume-sheet[data-page-count] .nested-list-root > li > .nested-list {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .resume-sheet[data-page-count] .projects-grid {
+        align-content: space-around;
+    }
+
+    .work-entry,
+    .education-entry,
     .project-card {
         break-inside: avoid;
+    }
+
+    .resume-section-heading {
+        break-after: avoid;
     }
 }
