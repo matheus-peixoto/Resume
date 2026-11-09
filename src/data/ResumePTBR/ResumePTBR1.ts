@@ -1,7 +1,6 @@
-import { Resume } from "@/types/resume";
+import type { Resume } from "@/types/resume";
 import { RESUMEPTBR } from "./ResumePTBR";
 
-// O conteúdo de uma página é editado aqui. Identidade e contato vêm do currículo web.
 export const RESUMEPTBR1: Resume = {
     ...RESUMEPTBR,
     educations: RESUMEPTBR.educations.map((education) => ({

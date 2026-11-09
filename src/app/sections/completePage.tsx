@@ -1,9 +1,7 @@
-import {
-    Languages,
-    ResumeSections,
-    PrintOption
-} from "@/app/sections";
-import { ResumeProp } from "@/types/resume";
+import type { ResumeProp } from "@/types/resume";
+import { Languages } from "./languages";
+import { PrintOption } from "./printOption";
+import { ResumeSections } from "./resumeSections";
 
 interface CompletePageProps extends ResumeProp {
     locale: string;

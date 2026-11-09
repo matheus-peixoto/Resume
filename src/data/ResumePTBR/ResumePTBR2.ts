@@ -1,7 +1,6 @@
-import { Resume } from "@/types/resume";
+import type { Resume } from "@/types/resume";
 import { RESUMEPTBR } from "./ResumePTBR";
 
-// O conteúdo de duas páginas é editado aqui, independentemente da versão de uma página.
 export const RESUMEPTBR2: Resume = {
     ...RESUMEPTBR,
     educations: RESUMEPTBR.educations.map((education) => ({
@@ -69,12 +68,12 @@ export const RESUMEPTBR2: Resume = {
         "Kubernetes", "Modelagem de banco", "Testes Unitários", "Testes de Integração", "Análise de Requisitos",
     ],
     projects: [
-        { title: "Dropshipping", techStack: ["Backend", "Frontend", "REST API", ".NET Core", "Redis", "SQL"], description: "Projeto de dropshipping para fornecedores da MegaMamute com foco em móveis.", link: { label: "", href: "" } },
-        { title: "Mercado Livre", techStack: ["Backend", "ASP.NET Framework", "SQL", "REST API"], description: "Manutenção da integração com o Mercado Livre e aprimoramento do fulfillment.", link: { label: "", href: "" } },
-        { title: "Riachuelo e ZoomBuscapé - Mosaico", techStack: ["Backend", "ASP.NET Framework", "Webhook", "SQL", "REST API"], description: "Integração dos marketplaces Riachuelo e ZoomBuscapé do início ao fim.", link: { label: "", href: "" } },
-        { title: "Monolítico para Microsserviços", techStack: ["Backend", ".NET Core", "RabbitMQ"], description: "Contribuí para a migração de arquitetura monolítica para microsserviços.", link: { label: "", href: "" } },
-        { title: "Mega Romaneio", techStack: ["Mobile", "React Native"], description: "Projeto mobile para controle de romaneio.", link: { label: "", href: "" } },
-        { title: "Resume", techStack: ["Projeto pessoal", "React"], description: "Projeto de currículo minimalista considerando avaliações ATS e TA.", link: { label: "", href: "" } },
+        { title: "Dropshipping", techStack: ["Backend", "Frontend", "REST API", ".NET Core", "Redis", "SQL"], description: "Projeto de dropshipping para fornecedores da MegaMamute com foco em móveis." },
+        { title: "Mercado Livre", techStack: ["Backend", "ASP.NET Framework", "SQL", "REST API"], description: "Manutenção da integração com o Mercado Livre e aprimoramento do fulfillment." },
+        { title: "Riachuelo e ZoomBuscapé - Mosaico", techStack: ["Backend", "ASP.NET Framework", "Webhook", "SQL", "REST API"], description: "Integração dos marketplaces Riachuelo e ZoomBuscapé do início ao fim." },
+        { title: "Monolítico para Microsserviços", techStack: ["Backend", ".NET Core", "RabbitMQ"], description: "Contribuí para a migração de arquitetura monolítica para microsserviços." },
+        { title: "Mega Romaneio", techStack: ["Mobile", "React Native"], description: "Projeto mobile para controle de romaneio." },
+        { title: "Resume", techStack: ["Projeto pessoal", "React"], description: "Projeto de currículo minimalista considerando avaliações ATS e TA." },
     ],
 };
 

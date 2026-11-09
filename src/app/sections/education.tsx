@@ -1,13 +1,10 @@
-import { ResumeProp } from "@/types/resume";
+import type { ResumeProp } from "@/types/resume";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export function Education({ resume }: ResumeProp) {
     return (
         <section className="mb-8 print:mb-3">
-            <div className="mb-2 print:mb-0">
-                <h2 className="text-xl print:text-lg font-bold text-black">
-                    {resume.sectionTitles.education}
-                </h2>
-            </div>
+            <SectionHeading title={resume.sectionTitles.education} />
 
             {resume.educations.map((education, index) => {
                 const description = education.descriptionParagraphs?.[0];
@@ -15,8 +12,6 @@ export function Education({ resume }: ResumeProp) {
                 return (
                     <div key={index}>
                         <div className="mb-1 flex justify-between">
-                            
-                            {/* Screen version */}
                             <div className="print:hidden">
                                 <h3 className="font-semibold text-black">
                                     {education.fullSchoolName ?? education.school}
@@ -26,7 +21,6 @@ export function Education({ resume }: ResumeProp) {
                                 </h4>
                             </div>
 
-                            {/* Print version */}
                             <h3 className="hidden print:block font-semibold text-black">
                                 {education.school} - {education.degree}
                             </h3>

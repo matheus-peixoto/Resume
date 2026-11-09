@@ -1,9 +1,9 @@
 export interface SectionTitles {
-    about: string,
-    workExperience: string,
-    education: string,
-    skills: string,
-    projects: string
+    about: string;
+    education: string;
+    projects: string;
+    skills: string;
+    workExperience: string;
 }
 
 export interface Social {
@@ -32,44 +32,36 @@ export interface BulletList {
 }
 
 export interface Job {
+    bulletList: BulletList[] | null;
     company: string;
+    coreDescription: string;
+    end: string;
     link: string | null;
     workModels: string[];
-    title: string;
-    logo: string;
     start: string;
-    end: string;
-    descriptionParagraphs: string[];
-    coreDescription: string;
-    bulletList: BulletList[] | null;
+    title: string;
 }
 
 export interface Project {
-    title: string;
     description: string;
     techStack: string[];
-    link: {
-        label: string;
-        href: string;
-    };
+    title: string;
 }
 
 export interface Resume {
-    resumeLanguage: string,
-    name: string;
-    initials: string;
-    location: string;
-    locationLink: string;
-    shortDescription: string;
-    summary: string;
-    ownerImgUrl: string;
-    personalWebsiteUrl: string;
-    sectionTitles: SectionTitles;
     contact: Contact;
     educations: Education[];
     jobs: Job[];
-    skills: string[];
+    location: string;
+    locationLink: string;
+    name: string;
+    ownerImgUrl: string;
     projects: Project[] | null;
+    resumeLanguage: string;
+    sectionTitles: SectionTitles;
+    shortDescription: string;
+    skills: string[];
+    summary: string;
 }
 
 export interface ResumeProp {

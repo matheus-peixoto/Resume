@@ -1,4 +1,4 @@
-import { ResumeProp } from "@/types/resume";
+import type { ResumeProp } from "@/types/resume";
 
 export function About({ resume }: ResumeProp) {
     return (
