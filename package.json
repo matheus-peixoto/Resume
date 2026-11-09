@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "resume:discover": "node scripts/discover-resumes.mjs",
+    "predev": "pnpm resume:discover",
     "dev": "next dev",
+    "prebuild": "node scripts/clean-build-cache.mjs && node scripts/discover-resumes.mjs",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "prestart": "pnpm resume:discover",
+    "start": "next dev",
+    "lint": "next lint",
+    "pdf:install": "playwright install chromium",
+    "pdf:dev": "node scripts/generate-pdfs.mjs --watch",
+    "pdf:generate": "node scripts/generate-pdfs.mjs",
+    "pdf:publish": "node scripts/generate-pdfs.mjs --output-dir public/pdfs"
   },
   "dependencies": {
     "next": "15.0.3",
@@ -18,8 +26,11 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "chokidar": "^4.0.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "pdfjs-dist": "^6.5.438",
+    "playwright": "^1.65.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
