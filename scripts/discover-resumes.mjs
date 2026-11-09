@@ -1,0 +1,147 @@
+import { access, readdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import { fileURLToPath } from "node:url";
+
+const workspace = process.cwd();
+const dataDirectory = path.join(workspace, "src", "data");
+const registryPath = path.join(dataDirectory, "resumeRegistry.generated.ts");
+const metadataPath = path.join(dataDirectory, "pdfResumeMetadata.generated.ts");
+const manifestPath = path.join(dataDirectory, "pdf-resume-manifest.generated.json");
+
+const toPosixPath = (value) => value.split(path.sep).join("/");
+
+const writeIfChanged = async (filePath, content) => {
+    let current = null;
+
+    try {
+        current = await readFile(filePath, "utf8");
+    } catch {
+        // The generated file does not exist yet.
+    }
+
+    if (current !== content) {
+        await writeFile(filePath, content, "utf8");
+    }
+};
+
+const assertFileExists = async (filePath) => {
+    try {
+        await access(filePath);
+    } catch {
+        throw new Error(`Configured resume file does not exist: ${filePath}`);
+    }
+};
+
+export const discoverResumes = async () => {
+    const rootConfig = JSON.parse(
+        await readFile(path.join(dataDirectory, "resume.config.json"), "utf8"),
+    );
+    const entries = await readdir(dataDirectory, { withFileTypes: true });
+    const languageDirectories = entries
+        .filter((entry) => entry.isDirectory() && entry.name.startsWith("Resume"))
+        .map((entry) => entry.name)
+        .sort();
+
+    if (languageDirectories.length === 0) {
+        throw new Error("No resume language directories were found in src/data.");
+    }
+
+    const languages = [];
+    const variants = [];
+
+    for (const directoryName of languageDirectories) {
+        const directoryPath = path.join(dataDirectory, directoryName);
+        const config = JSON.parse(
+            await readFile(path.join(directoryPath, "resume.config.json"), "utf8"),
+        );
+        const webPath = path.join(directoryPath, config.webFile);
+        await assertFileExists(webPath);
+
+        const files = await readdir(directoryPath);
+        const escapedPrefix = config.prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const variantPattern = new RegExp(`^${escapedPrefix}(\\d+)\\.ts$`);
+        const languageVariants = files
+            .map((fileName) => {
+                const match = fileName.match(variantPattern);
+                return match ? { fileName, pages: Number(match[1]) } : null;
+            })
+            .filter(Boolean)
+            .sort((left, right) => left.pages - right.pages);
+
+        if (languageVariants.length === 0) {
+            throw new Error(`No numbered PDF resumes were found in ${directoryPath}.`);
+        }
+
+        const duplicatePageCounts = languageVariants.filter(
+            (variant, index) => languageVariants.findIndex((item) => item.pages === variant.pages) !== index,
+        );
+        if (duplicatePageCounts.length > 0) {
+            throw new Error(`Duplicate page-count variants found for locale ${config.locale}.`);
+        }
+
+        languages.push({
+            locale: config.locale,
+            importPath: `./${directoryName}/${path.basename(config.webFile, ".ts")}`,
+        });
+
+        for (const variant of languageVariants) {
+            const slug = `${variant.pages}-page`;
+            variants.push({
+                locale: config.locale,
+                pages: variant.pages,
+                slug,
+                route: `/${config.locale}/pdf/${slug}/`,
+                fileName: `${rootConfig.pdfFilePrefix}-${config.locale}-${slug}.pdf`,
+                importPath: `./${directoryName}/${path.basename(variant.fileName, ".ts")}`,
+                sourceFile: toPosixPath(path.relative(workspace, path.join(directoryPath, variant.fileName))),
+            });
+        }
+    }
+
+    const registryImports = [
+        ...languages.map((language, index) => `import webResume${index} from "${language.importPath}";`),
+        ...variants.map((variant, index) => `import pdfResume${index} from "${variant.importPath}";`),
+    ].join("\n");
+    const webEntries = languages
+        .map((language, index) => `    ${JSON.stringify(language.locale)}: webResume${index},`)
+        .join("\n");
+    const pdfEntries = variants
+        .map((variant, index) => [
+            "    {",
+            `        locale: ${JSON.stringify(variant.locale)},`,
+            `        pages: ${variant.pages},`,
+            `        slug: ${JSON.stringify(variant.slug)},`,
+            `        route: ${JSON.stringify(variant.route)},`,
+            `        fileName: ${JSON.stringify(variant.fileName)},`,
+            `        sourceFile: ${JSON.stringify(variant.sourceFile)},`,
+            `        resume: pdfResume${index},`,
+            "    },",
+        ].join("\n"))
+        .join("\n");
+    const registry = `// This file is generated by scripts/discover-resumes.mjs. Do not edit manually.\nimport { Resume } from "@/types/resume";\n${registryImports}\n\nexport interface PdfResumeDefinition {\n    locale: string;\n    pages: number;\n    slug: string;\n    route: string;\n    fileName: string;\n    sourceFile: string;\n    resume: Resume;\n}\n\nexport const webResumes: Record<string, Resume> = {\n${webEntries}\n};\n\nexport const pdfResumeDefinitions: PdfResumeDefinition[] = [\n${pdfEntries}\n];\n\nexport const getPdfResumeDefinition = (locale: string, slug: string) =>\n    pdfResumeDefinitions.find((definition) => definition.locale === locale && definition.slug === slug);\n`;
+    const publicMetadata = variants.map(({ locale, pages, slug, fileName }) => ({
+        locale,
+        pages,
+        slug,
+        fileName,
+    }));
+    const metadata = `// This file is generated by scripts/discover-resumes.mjs. Do not edit manually.\nexport const pdfResumeMetadata = ${JSON.stringify(publicMetadata, null, 4)} as const;\n`;
+    const manifest = `${JSON.stringify(variants.map(({ importPath, ...variant }) => variant), null, 2)}\n`;
+
+    await Promise.all([
+        writeIfChanged(registryPath, registry),
+        writeIfChanged(metadataPath, metadata),
+        writeIfChanged(manifestPath, manifest),
+    ]);
+
+    return { languages, variants };
+};
+
+const isDirectExecution = process.argv[1]
+    && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectExecution) {
+    const result = await discoverResumes();
+    console.log(`Discovered ${result.languages.length} language(s) and ${result.variants.length} PDF variant(s).`);
+}

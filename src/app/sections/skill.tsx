@@ -11,7 +11,7 @@ export function Skills({ resume }: ResumeProp) {
             <div className="flex flex-wrap gap-1">
                 {
                     resume.skills.map((skill, index) => (
-                        <div key={index} className="rounded-md bg-gray-700 text-xs py-1 px-2 print:p-0">
+                        <div key={index} className="rounded-md bg-gray-700 text-xs py-1 px-2 print:p-0 print:bg-transparent print:rounded-none">
                             <span className="print:hidden text-white">
                                 {skill}
                             </span>

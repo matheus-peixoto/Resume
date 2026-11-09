@@ -3,11 +3,32 @@
 @tailwind utilities;
 
 h1, h2, h3, h4 {
-font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use the inherited font from the body */
+    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@page {
+    size: A4;
+    margin: 0.125in;
 }
 
 @media print {
+    html,
+    body {
+        background: white !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
     ul {
         list-style-position: inside;
+    }
+
+    .resume-sheet {
+        margin: 0 !important;
+        max-width: none !important;
+    }
+
+    .project-card {
+        break-inside: avoid;
     }
 }

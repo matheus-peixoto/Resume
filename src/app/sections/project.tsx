@@ -2,7 +2,7 @@ import { ProjectCard } from "@/components";
 import { ResumeProp } from "@/types/resume";
 
 export function Project({ resume }: ResumeProp) {
-    var projects = resume.projects!;
+    const projects = resume.projects!;
 
     return (
         <section>

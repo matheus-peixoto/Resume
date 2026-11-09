@@ -5,12 +5,16 @@ import {
 } from "@/app/sections";
 import { ResumeProp } from "@/types/resume";
 
-export function CompletePage({ resume }: ResumeProp) {
+interface CompletePageProps extends ResumeProp {
+    locale: string;
+}
+
+export function CompletePage({ resume, locale }: CompletePageProps) {
     return (
         <>
             <Languages />
             <ResumeSections resume={resume} />
-            <PrintOption />
+            <PrintOption locale={locale} />
         </>
     );
 }

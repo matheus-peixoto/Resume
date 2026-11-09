@@ -6,7 +6,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="flex flex-col justify-between border rounded-md p-2 print:px-2 print:pb-1">
+        <div className="project-card flex flex-col justify-between border rounded-md p-2 print:px-2 print:pb-1">
             <div>
                 <div className="flex font-semibold text-black mb-1 items-center gap-1">
                     <h3>{project.title}</h3>

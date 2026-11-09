@@ -33,8 +33,8 @@ export const RESUMEEN: Resume = {
   },
   educations: [
     {
-      fullSchoolName: "Fatec Zona Sul – Dom Paulo Evaristo Arns",
-      school: "Fatec Zona Sul",
+      fullSchoolName: "Fatec Zona Sul – Dom Paulo Evaristo Arnsss",
+      school: "Fatec Zona Sulsss",
       degree: "Systems Analysis and Development",
       descriptionParagraphs: [
         "Graduated in Systems Analysis and Development, I developed skills in database modeling and management, technical documentation, requirements analysis, as well as a solid understanding of programming logic and data structures."
@@ -59,9 +59,10 @@ export const RESUMEEN: Resume = {
         "Technologies used included .NET with ASP.NET, ASP.NET Core, OAuth, JWT, Entity Framework, and SQL Server for the creation of REST APIs; AWS S3, AWS EC2, AWS Route 53, and AWS Elastic Beanstalk for deployments, hosting configurations, and storage; and React, React Native, Razor, and Blazor for the front end and mobile applications, always considering best practices and principles such as SOLID and design patterns, following architectures like MVC and Clean Architecture."
       ],
       coreDescription: "At MegaMamute, a company focused on online sales, I played a key role in developing e-commerce integrations, a dropshipping system, and in maintaining and evolving internal systems.",
-      bulletList: {
-        name: "Responsibilities and Achievements",
-        children: [
+      bulletList: [
+        {
+          name: "Responsibilities and Achievements",
+          children: [
           {
             name: "E-commerce Integrations",
             children: [
@@ -122,8 +123,9 @@ export const RESUMEEN: Resume = {
               }
             ]
           }
-        ]
-      }
+          ]
+        }
+      ]
     },
     {
       company: "TechEleven",
@@ -141,9 +143,10 @@ export const RESUMEEN: Resume = {
         "Created reports with SQL Server and Firebird using Views and Procedures."
       ],
       coreDescription: "As a .NET developer at Tech Eleven, a start-up focused on technological solutions and in-house software, I contributed to the development and improvement of ERP features.",
-      bulletList: {
-        name: "Responsibilities and Achievements",
-        children: [
+      bulletList: [
+        {
+          name: "Responsibilities and Achievements",
+          children: [
           {
             name: "Developed reporting tools for exporting data to spreadsheets.",
             children: []
@@ -164,8 +167,9 @@ export const RESUMEEN: Resume = {
             name: "Implemented the automation of operational tasks using ASP.NET Framework.",
             children: []
           }
-        ]
-      }
+          ]
+        }
+      ]
     }
   ],
   skills: [
@@ -253,3 +257,5 @@ export const RESUMEEN: Resume = {
     }
   ]
 } as const;
+
+export default RESUMEEN;

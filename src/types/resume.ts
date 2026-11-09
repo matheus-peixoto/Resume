@@ -73,5 +73,5 @@ export interface Resume {
 }
 
 export interface ResumeProp {
-    resume: Resume
+    resume: Resume;
 }

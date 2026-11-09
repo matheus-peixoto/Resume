@@ -287,3 +287,5 @@ export const RESUMEPTBR: Resume = {
     }
   ]
 } as const;
+
+export default RESUMEPTBR;

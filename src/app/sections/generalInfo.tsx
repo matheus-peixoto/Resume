@@ -80,7 +80,7 @@ export function GeneralInfo({ resume }: ResumeProp) {
                     {resume.contact.socials.map((social, index) => (
                         <span key={index} className="flex items-center gap-1">
                             <a className="hover:underline font-bold" href={social.url}>
-                                {social.url}
+                                {social.name}
                             </a>
                             {index < resume.contact.socials.length - 1 && <span>|</span>}
                         </span>

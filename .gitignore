@@ -15,7 +15,18 @@
 
 # next.js
 /.next/
+/.next-pdf/
 /out/
+/output/
+/tmp/pdfs/
+/public/pdfs/
+
+# generated resume registries and manifests
+/src/data/*.generated.ts
+/src/data/*.generated.json
+
+# local pull request draft
+/PR.md
 
 # production
 /build

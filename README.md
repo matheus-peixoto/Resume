@@ -26,7 +26,7 @@ This project aims to create a resume optimized for ATS (Applicant Tracking Syste
 
 ## How to run the project
 
-This project is based on standard web technologies. You can serve the files locally using any static server, or install the dependencies and run a development environment if a build system or bundler is configured.
+This project is built with Next.js and uses pnpm for dependency management.
 
 ### Using PNPM
 
@@ -36,51 +36,66 @@ This project is based on standard web technologies. You can serve the files loca
 2. **Install the dependencies:**  
    ```bash
    pnpm install
+   ```
 
-3. **Start the development server:**
+3. **Start the website development server:**
    ```bash
-   pnpm start
+   pnpm dev
+   ```
 
 Then open http://localhost:3000 in your browser.
 
+## Develop and generate PDFs
+
+The project generates deterministic A4 PDFs with `0.125in` margins, selectable text, and validated page counts. The available languages and page counts are discovered from `src/data`; they are not hard-coded in the PDF script.
+
+1. Install Chromium once:
+   ```bash
+   pnpm pdf:install
+   ```
+
+2. While editing PDF content, run the live PDF development command:
+   ```bash
+   pnpm pdf:dev
+   ```
+
+   Open http://localhost:4173. The command initially creates every downloadable PDF in `public/pdfs`, then watches the resume data and print-related components. Editing a numbered file such as `ResumeEN1.ts` regenerates that PDF automatically, so there is no need to run `pdf:generate` after every edit. In watch mode a page-count mismatch is reported as a warning and the PDF is still written so you can inspect it.
+
+3. Generate and strictly validate release candidates:
+   ```bash
+   pnpm pdf:generate
+   ```
+
+   The local files are written to `output/pdf`. Generation fails if a PDF has the wrong number of pages, exceeds the file-size limit, or is missing required extractable text.
+
+4. Generate the validated PDFs used by website download buttons:
+   ```bash
+   pnpm pdf:publish
+   ```
+
+   This writes to `public/pdfs`. GitHub Actions runs the same command before building GitHub Pages.
+
 ## How to create your own resume from this project
 
-  1. **Edit the resume data**  
-  The main files are located in the `src/data` directory. Modify the `Resume*.ts` files to update sections, text, keywords, and technical skills according to your professional profile.
+1. **Edit website content**
+   The language folders under `src/data` contain a non-numbered file for the normal website, such as `src/data/ResumeEN/ResumeEN.ts`.
 
-  2. **Add new languages**  
-  - Create a new `Resume*.ts` file for the desired language.
+2. **Edit PDF-specific content**
+   Each numbered TypeScript file contains the complete content for its intended PDF length:
 
-  - Add this file to the re-export in the `src/data/index.ts` file.
+   - `src/data/ResumeEN/ResumeEN1.ts` is the English one-page resume.
+   - `src/data/ResumeEN/ResumeEN2.ts` is the English two-page resume.
+   - `src/data/ResumePTBR/ResumePTBR1.ts` and `ResumePTBR2.ts` are the equivalent Portuguese variants.
 
-  - Create a route for the language following the existing pattern:
+   These are independent authored resumes rather than filters that hide sections from one shared profile.
 
-    - Follow the pattern inside `src/data` and create the resume content for the new language, German for example, inheriting from the Resume interface (e.g. `src/data/ResumeDE.ts`).
+3. **Add another page-count variant**
+   Copy an existing numbered file in the appropriate language folder and use the page count in its name. For example, `ResumeEN3.ts` automatically creates the `/en/pdf/3-page/` route, download button, output filename, and three-page validation target. Run `pnpm resume:discover` if you want to refresh the generated registry immediately; the normal dev, build, and PDF commands do this automatically.
 
-    - Add a folder named with the language abbreviation (e.g. `de` for German generating `src/app/de`). 
-    
-    - Inside this new folder create a `page.tsx` following the existing pattern generating `src/app/de/page.tsx`.
+4. **Add another language**
+   Create a `src/data/ResumeXX` folder following an existing folder. Its `resume.config.json` declares the locale, filename prefix, and normal website file. Add one or more numbered files using that prefix. The discovery script then creates all PDF routes and metadata automatically. A normal website route for the locale still needs a corresponding page under `src/app`.
 
-    - In the `resumesMap` object include the same name as the new folder as the key (e.g. `"de"`).
-
-    Example:
-    ```ts
-    import { Resume } from "@/types/resume";
-    import { RESUMEEN } from './ResumeEN';
-    import { RESUMEPTBR } from './ResumePTBR';
-    import { RESUMEDE } from './ResumeDE';
-
-    const resumesMap: Record<string, Resume> = {
-      "en": RESUMEEN,
-      "pt-br": RESUMEPTBR,
-      "de": RESUMEDE
-    };
-
-    export default resumesMap;
-    ```
-
-  3. **Adjust the formatting for PDF:**  
-  When printing the resume from the browser (Ctrl+P or Cmd+P) or clicking the footer button, adjust margins, orientation, and other page details to achieve a final result optimized for your PDF resume. Experiment with different configurations until you reach the desired formatting.
+The generated registry, metadata, and manifest in `src/data` should not be edited manually. Page size and print margins are defined in `src/app/globals.css`.
 
 ## Credits and Inspiration
 

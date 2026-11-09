@@ -12,6 +12,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <CompletePage resume={resume} />
+    <CompletePage resume={resume} locale="pt-br" />
   );
 }
