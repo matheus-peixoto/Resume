@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === 'production';
-const basePath = process.env.PAGES_BASE_PATH ?? (isProd ? '/cv' : '');
+const basePath = process.env.PAGES_BASE_PATH ?? '';
 
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR ?? '.next',

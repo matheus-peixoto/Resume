@@ -26,7 +26,7 @@ This project aims to create a resume optimized for ATS (Applicant Tracking Syste
 
 ## How to run the project
 
-This project is built with Next.js and uses pnpm for dependency management.
+This project is built with Next.js, requires Node.js 22 or newer, and uses pnpm for dependency management.
 
 ### Using PNPM
 
