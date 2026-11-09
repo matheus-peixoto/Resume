@@ -37,12 +37,20 @@ const synchronizeOutputDirectory = async (profiles) => {
         .map((fileName) => unlink(path.join(outputDirectory, fileName))));
 };
 
-const canReachServer = async (route) => {
+const probeRoute = async (route) => {
     try {
         const response = await fetch(`${baseUrl}${route}`);
-        return response.ok;
+        return {
+            reachable: true,
+            ok: response.ok,
+            status: response.status,
+        };
     } catch {
-        return false;
+        return {
+            reachable: false,
+            ok: false,
+            status: null,
+        };
     }
 };
 
@@ -50,8 +58,15 @@ const waitForServer = async (route, timeoutMs = 60_000) => {
     const deadline = Date.now() + timeoutMs;
 
     while (Date.now() < deadline) {
-        if (await canReachServer(route)) {
+        const result = await probeRoute(route);
+        if (result.ok) {
             return;
+        }
+
+        if (result.reachable && result.status === 404) {
+            throw new Error(
+                `The PDF route ${baseUrl}${route} returned HTTP 404. Check the Next.js base path configuration.`,
+            );
         }
 
         await new Promise((resolve) => setTimeout(resolve, 500));
@@ -74,7 +89,7 @@ const stopDevelopmentServer = (child) => {
 };
 
 const startDevelopmentServer = async (readinessRoute) => {
-    if (await canReachServer(readinessRoute)) {
+    if ((await probeRoute(readinessRoute)).ok) {
         return null;
     }
 
