@@ -8,12 +8,13 @@ import { WorkExperience } from "./workExperience";
 
 interface ResumeSectionsProps extends ResumeProp {
     pageCount?: number;
+    showProfilePhoto?: boolean;
 }
 
-export function ResumeSections({ resume, pageCount }: ResumeSectionsProps) {
+export function ResumeSections({ resume, pageCount, showProfilePhoto = true }: ResumeSectionsProps) {
     const profileAndWork = (
         <>
-            <GeneralInfo resume={resume} />
+            <GeneralInfo resume={resume} showProfilePhoto={showProfilePhoto} />
             <About resume={resume} />
             <WorkExperience resume={resume} />
         </>

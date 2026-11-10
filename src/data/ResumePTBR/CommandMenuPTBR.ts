@@ -22,6 +22,11 @@ export const COMMAND_MENU_PTBR = {
         saveError: "Não foi possível salvar o PDF. Tente novamente.",
         onePage: "1 página",
         multiplePages: "{pages} páginas",
+        pagesSection: "Páginas",
+        profilePhotoSection: "Foto de perfil",
+        withPhoto: "Com foto",
+        withoutPhoto: "Sem foto",
+        continue: "Continuar",
     },
     theme: {
         light: "Claro",

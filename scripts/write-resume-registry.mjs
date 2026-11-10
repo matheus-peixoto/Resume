@@ -30,6 +30,7 @@ const createRegistry = (languages, variants) => {
     const pdfEntries = variants
         .map((variant, index) => [
             "    {",
+            `        includePhoto: ${variant.includePhoto},`,
             `        locale: ${JSON.stringify(variant.locale)},`,
             `        pages: ${variant.pages},`,
             `        slug: ${JSON.stringify(variant.slug)},`,
@@ -46,6 +47,7 @@ import type { Resume } from "@/types/resume";
 ${imports}
 
 export interface PdfResumeDefinition {
+    includePhoto: boolean;
     locale: string;
     pages: number;
     slug: string;
@@ -69,7 +71,8 @@ export const getPdfResumeDefinition = (locale: string, slug: string) =>
 };
 
 export const writeResumeRegistry = async ({ dataDirectory, languages, variants }) => {
-    const publicMetadata = variants.map(({ locale, pages, slug, fileName }) => ({
+    const publicMetadata = variants.map(({ includePhoto, locale, pages, slug, fileName }) => ({
+        includePhoto,
         locale,
         pages,
         slug,

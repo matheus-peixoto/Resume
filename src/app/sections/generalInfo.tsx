@@ -39,7 +39,11 @@ const getContactLinks = (contact: Contact): ContactLink[] => {
     return links;
 };
 
-export function GeneralInfo({ resume }: ResumeProp) {
+interface GeneralInfoProps extends ResumeProp {
+    showProfilePhoto?: boolean;
+}
+
+export function GeneralInfo({ resume, showProfilePhoto = true }: GeneralInfoProps) {
     const contactLinks = getContactLinks(resume.contact);
 
     return (
@@ -90,16 +94,18 @@ export function GeneralInfo({ resume }: ResumeProp) {
                 </div>
             </div>
 
-            <div className="size-28 shrink-0 print:size-24">
-                <Image
-                    alt={`${resume.name} photo`}
-                    className="size-full rounded-xl bg-wash object-cover ring-1 ring-border"
-                    height={112}
-                    priority
-                    src={resume.ownerImgUrl}
-                    width={112}
-                />
-            </div>
+            {showProfilePhoto && (
+                <div className="size-28 shrink-0 print:size-24">
+                    <Image
+                        alt={`${resume.name} photo`}
+                        className="size-full rounded-xl bg-wash object-cover ring-1 ring-border"
+                        height={112}
+                        priority
+                        src={resume.ownerImgUrl}
+                        width={112}
+                    />
+                </div>
+            )}
         </header>
     );
 }

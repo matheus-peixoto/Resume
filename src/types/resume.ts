@@ -28,6 +28,11 @@ export interface CommandMenuTranslations {
         saveError: string;
         onePage: string;
         multiplePages: string;
+        pagesSection: string;
+        profilePhotoSection: string;
+        withPhoto: string;
+        withoutPhoto: string;
+        continue: string;
     };
     theme: {
         light: string;
