@@ -29,5 +29,11 @@ export default async function PdfResumePage({ params }: PdfResumePageProps) {
         notFound();
     }
 
-    return <ResumeSections pageCount={definition.pages} resume={definition.resume} />;
+    return (
+        <ResumeSections
+            pageCount={definition.pages}
+            resume={definition.resume}
+            showProfilePhoto={definition.includePhoto}
+        />
+    );
 }

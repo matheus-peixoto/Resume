@@ -8,6 +8,8 @@ import {
     LuDownload,
     LuFileDown,
     LuGlobe2,
+    LuImage,
+    LuImageOff,
     LuMoon,
     LuPalette,
     LuSearch,
@@ -24,6 +26,7 @@ interface LanguageOption {
 
 interface PdfOption {
     fileName: string;
+    includePhoto: boolean;
     pages: number;
 }
 
@@ -68,6 +71,16 @@ const ensurePdfExtension = (fileName: string) => (
 
 const withoutPdfExtension = (fileName: string) => fileName.replace(/\.pdf$/i, "");
 
+const normalizeSearchText = (value: string) => value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase();
+
+const filterCommandItem = (value: string, search: string, keywords?: string[]) => {
+    const searchableText = normalizeSearchText([value, ...(keywords ?? [])].join(" "));
+    return searchableText.includes(normalizeSearchText(search)) ? 1 : 0;
+};
+
 export function CommandMenuDialog({
     currentLocale,
     initialView,
@@ -82,6 +95,9 @@ export function CommandMenuDialog({
 }: CommandMenuDialogProps) {
     const [view, setView] = useState<MenuView>("root");
     const [selectedPdf, setSelectedPdf] = useState<PdfOption | null>(null);
+    const [selectedPages, setSelectedPages] = useState<number | null>(null);
+    const [includePhoto, setIncludePhoto] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
     const [fileName, setFileName] = useState("");
     const [isSaving, setIsSaving] = useState(false);
     const [saveError, setSaveError] = useState("");
@@ -92,9 +108,16 @@ export function CommandMenuDialog({
         if (open) {
             setView(initialView);
             setSelectedPdf(null);
+            setSelectedPages(
+                pdfOptions.length > 0
+                    ? Math.min(...pdfOptions.map(({ pages }) => pages))
+                    : null,
+            );
+            setIncludePhoto(false);
+            setSearchQuery("");
             setSaveError("");
         }
-    }, [initialView, open]);
+    }, [initialView, open, pdfOptions]);
 
     const changeTheme = (nextTheme: "light" | "dark") => {
         document.documentElement.dataset.theme = nextTheme;
@@ -165,6 +188,25 @@ export function CommandMenuDialog({
             : labels.pdf.multiplePages.replace("{pages}", String(pages))
     );
 
+    const photoLabel = (hasPhoto: boolean) => (
+        hasPhoto ? labels.pdf.withPhoto : labels.pdf.withoutPhoto
+    );
+    const pdfLabel = (pdf: PdfOption) => `${pageLabel(pdf.pages)} · ${photoLabel(pdf.includePhoto)}`;
+    const pageOptions = [...new Set(pdfOptions.map(({ pages }) => pages))].sort((left, right) => left - right);
+    const configuredPdf = pdfOptions.find((pdf) => (
+        pdf.pages === selectedPages && pdf.includePhoto === includePhoto
+    ));
+    const isSearching = searchQuery.trim().length > 0;
+
+    const chooseLanguage = (route: string) => {
+        if (route === currentLocale) {
+            setOpen(false);
+            return;
+        }
+
+        window.location.assign(`${basePath}/${route}`);
+    };
+
     return (
         <Dialog.Root onOpenChange={setOpen} open={open}>
             <Dialog.Portal>
@@ -185,13 +227,15 @@ export function CommandMenuDialog({
                     <Dialog.Title className="sr-only">{labels.title}</Dialog.Title>
 
                     {view === "root" && (
-                        <Command className="flex w-full flex-col overflow-hidden" label={labels.title}>
+                        <Command className="flex w-full flex-col overflow-hidden" filter={filterCommandItem} label={labels.title}>
                             <div className="flex items-center border-b border-border px-3">
                                 <LuSearch aria-hidden="true" className="mr-2 shrink-0 text-muted" size={18} />
                                 <Command.Input
                                     autoFocus
                                     className="h-12 w-full bg-transparent py-3 text-sm text-foreground outline-none placeholder:text-muted"
+                                    onValueChange={setSearchQuery}
                                     placeholder={labels.searchPlaceholder}
+                                    value={searchQuery}
                                 />
                             </div>
                             <Command.List className="max-h-[min(65vh,420px)] overflow-y-auto overflow-x-hidden py-1">
@@ -199,36 +243,93 @@ export function CommandMenuDialog({
                                     {labels.noResults}
                                 </Command.Empty>
 
-                                <Command.Group className={groupClassName} heading={labels.sections.actions}>
-                                    <Command.Item className={itemClassName} onSelect={() => setView("pdf")}>
-                                        <LuFileDown aria-hidden="true" size={16} />
-                                        {labels.pdf.action}
-                                    </Command.Item>
-                                    <Command.Item className={itemClassName} onSelect={() => setView("theme")}>
-                                        <LuPalette aria-hidden="true" size={16} />
-                                        {labels.sections.theme}
-                                    </Command.Item>
-                                    <Command.Item className={itemClassName} onSelect={() => setView("languages")}>
-                                        <LuGlobe2 aria-hidden="true" size={16} />
-                                        {labels.sections.languages}
-                                    </Command.Item>
-                                </Command.Group>
+                                {!isSearching ? (
+                                    <>
+                                        <Command.Group className={groupClassName} heading={labels.sections.actions}>
+                                            <Command.Item className={itemClassName} onSelect={() => setView("pdf")}>
+                                                <LuFileDown aria-hidden="true" size={16} />
+                                                {labels.pdf.action}
+                                            </Command.Item>
+                                            <Command.Item className={itemClassName} onSelect={() => setView("theme")}>
+                                                <LuPalette aria-hidden="true" size={16} />
+                                                {labels.sections.theme}
+                                            </Command.Item>
+                                            <Command.Item className={itemClassName} onSelect={() => setView("languages")}>
+                                                <LuGlobe2 aria-hidden="true" size={16} />
+                                                {labels.sections.languages}
+                                            </Command.Item>
+                                        </Command.Group>
 
-                                {links.length > 0 && (
-                                    <Command.Group className={groupClassName} heading={labels.sections.links}>
-                                        {links.map(({ name, url }) => (
+                                        {links.length > 0 && (
+                                            <LinkResults heading={labels.sections.links} links={links} setOpen={setOpen} />
+                                        )}
+                                    </>
+                                ) : (
+                                    <>
+                                        <Command.Group className={groupClassName} heading={labels.pdf.heading}>
+                                            {pdfOptions.map((pdf) => (
+                                                <Command.Item
+                                                    className={itemClassName}
+                                                    key={pdf.fileName}
+                                                    keywords={[labels.pdf.action, labels.pdf.pagesSection, labels.pdf.profilePhotoSection]}
+                                                    onSelect={() => choosePdf(pdf)}
+                                                    value={pdfLabel(pdf)}
+                                                >
+                                                    {pdf.includePhoto
+                                                        ? <LuImage aria-hidden="true" size={16} />
+                                                        : <LuImageOff aria-hidden="true" size={16} />}
+                                                    {pdfLabel(pdf)}
+                                                </Command.Item>
+                                            ))}
+                                        </Command.Group>
+
+                                        <Command.Group className={groupClassName} heading={labels.sections.theme}>
                                             <Command.Item
                                                 className={itemClassName}
-                                                key={url}
+                                                keywords={[labels.sections.theme]}
                                                 onSelect={() => {
+                                                    changeTheme("light");
                                                     setOpen(false);
-                                                    window.open(url, "_blank", "noopener,noreferrer");
                                                 }}
+                                                value={labels.theme.light}
                                             >
-                                                {name}
+                                                <LuSun aria-hidden="true" size={16} />
+                                                {labels.theme.light}
                                             </Command.Item>
-                                        ))}
-                                    </Command.Group>
+                                            <Command.Item
+                                                className={itemClassName}
+                                                keywords={[labels.sections.theme]}
+                                                onSelect={() => {
+                                                    changeTheme("dark");
+                                                    setOpen(false);
+                                                }}
+                                                value={labels.theme.dark}
+                                            >
+                                                <LuMoon aria-hidden="true" size={16} />
+                                                {labels.theme.dark}
+                                            </Command.Item>
+                                        </Command.Group>
+
+                                        <Command.Group className={groupClassName} heading={labels.sections.languages}>
+                                            {languages.map(({ name, route }) => (
+                                                <Command.Item
+                                                    className={itemClassName}
+                                                    key={route}
+                                                    keywords={[labels.sections.languages, route]}
+                                                    onSelect={() => chooseLanguage(route)}
+                                                    value={name}
+                                                >
+                                                    <LuGlobe2 aria-hidden="true" size={16} />
+                                                    <span className="flex-1">{name}</span>
+                                                    {route === currentLocale && <LuCheck aria-hidden="true" size={16} />}
+                                                </Command.Item>
+                                            ))}
+                                        </Command.Group>
+
+                                        {links.length > 0 && (
+                                            <LinkResults heading={labels.sections.links} links={links} setOpen={setOpen} />
+                                        )}
+                                    </>
                                 )}
 
                             </Command.List>
@@ -236,16 +337,47 @@ export function CommandMenuDialog({
                     )}
 
                     {view === "pdf" && (
-                        <Command className="flex w-full flex-col overflow-hidden" label={labels.pdf.heading}>
+                        <Command className="flex w-full flex-col overflow-hidden" label={labels.pdf.heading} shouldFilter={false}>
                             <MenuHeader backLabel={labels.back} onBack={() => setView("root")} title={labels.pdf.heading} />
-                            <Command.List className="max-h-[min(65vh,420px)] overflow-y-auto p-2">
-                                {pdfOptions.map((pdf) => (
-                                    <Command.Item className={itemClassName} key={pdf.fileName} onSelect={() => choosePdf(pdf)}>
-                                        <LuDownload aria-hidden="true" size={16} />
-                                        {pageLabel(pdf.pages)}
+                            <Command.List className="max-h-[min(65vh,420px)] overflow-y-auto py-1">
+                                <Command.Group className={groupClassName} heading={labels.pdf.pagesSection}>
+                                    {pageOptions.map((pages) => (
+                                        <Command.Item
+                                            className={itemClassName}
+                                            key={pages}
+                                            onSelect={() => setSelectedPages(pages)}
+                                        >
+                                            <LuFileDown aria-hidden="true" size={16} />
+                                            <span className="flex-1">{pageLabel(pages)}</span>
+                                            {selectedPages === pages && <LuCheck aria-hidden="true" size={16} />}
+                                        </Command.Item>
+                                    ))}
+                                </Command.Group>
+
+                                <Command.Group className={groupClassName} heading={labels.pdf.profilePhotoSection}>
+                                    <Command.Item className={itemClassName} onSelect={() => setIncludePhoto(false)}>
+                                        <LuImageOff aria-hidden="true" size={16} />
+                                        <span className="flex-1">{labels.pdf.withoutPhoto}</span>
+                                        {!includePhoto && <LuCheck aria-hidden="true" size={16} />}
                                     </Command.Item>
-                                ))}
+                                    <Command.Item className={itemClassName} onSelect={() => setIncludePhoto(true)}>
+                                        <LuImage aria-hidden="true" size={16} />
+                                        <span className="flex-1">{labels.pdf.withPhoto}</span>
+                                        {includePhoto && <LuCheck aria-hidden="true" size={16} />}
+                                    </Command.Item>
+                                </Command.Group>
                             </Command.List>
+                            <div className="border-t border-border p-2">
+                                <button
+                                    className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-foreground px-3 py-2 text-sm text-background transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+                                    disabled={!configuredPdf}
+                                    onClick={() => configuredPdf && choosePdf(configuredPdf)}
+                                    type="button"
+                                >
+                                    <LuDownload aria-hidden="true" size={16} />
+                                    {labels.pdf.continue}
+                                </button>
+                            </div>
                         </Command>
                     )}
 
@@ -275,13 +407,7 @@ export function CommandMenuDialog({
                                     <Command.Item
                                         className={itemClassName}
                                         key={route}
-                                        onSelect={() => {
-                                            if (route === currentLocale) {
-                                                setOpen(false);
-                                                return;
-                                            }
-                                            window.location.assign(`${basePath}/${route}`);
-                                        }}
+                                        onSelect={() => chooseLanguage(route)}
                                     >
                                         <span className="flex-1">{name}</span>
                                         {route === currentLocale && <LuCheck aria-hidden="true" size={16} />}
@@ -293,7 +419,7 @@ export function CommandMenuDialog({
 
                     {view === "file-name" && selectedPdf && (
                         <div>
-                            <MenuHeader backLabel={labels.back} onBack={() => setView("pdf")} title={pageLabel(selectedPdf.pages)} />
+                            <MenuHeader backLabel={labels.back} onBack={() => setView("pdf")} title={pdfLabel(selectedPdf)} />
                             <form className="space-y-4 p-4" onSubmit={downloadPdf}>
                                 <label className="block space-y-2 text-sm text-foreground">
                                     <span>{labels.pdf.fileNameLabel}</span>
@@ -331,6 +457,33 @@ export function CommandMenuDialog({
                 </Dialog.Content>
             </Dialog.Portal>
         </Dialog.Root>
+    );
+}
+
+interface LinkResultsProps {
+    heading: string;
+    links: Social[];
+    setOpen: (open: boolean) => void;
+}
+
+function LinkResults({ heading, links, setOpen }: LinkResultsProps) {
+    return (
+        <Command.Group className={groupClassName} heading={heading}>
+            {links.map(({ name, url }) => (
+                <Command.Item
+                    className={itemClassName}
+                    key={url}
+                    keywords={[url]}
+                    onSelect={() => {
+                        setOpen(false);
+                        window.open(url, "_blank", "noopener,noreferrer");
+                    }}
+                    value={name}
+                >
+                    {name}
+                </Command.Item>
+            ))}
+        </Command.Group>
     );
 }
 

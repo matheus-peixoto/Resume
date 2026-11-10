@@ -63,18 +63,21 @@ const discoverLanguage = async (directoryName, pdfFilePrefix) => {
         locale: config.locale,
         importPath: `./${directoryName}/${path.basename(config.webFile, ".ts")}`,
     };
-    const variants = (await findVariants(directoryPath, config.prefix)).map(({ fileName, pages }) => {
-        const slug = `${pages}-page`;
-        return {
-            locale: config.locale,
-            pages,
-            slug,
-            route: `/${config.locale}/pdf/${slug}/`,
-            fileName: `${pdfFilePrefix}-${config.locale}-${slug}.pdf`,
-            importPath: `./${directoryName}/${path.basename(fileName, ".ts")}`,
-            sourceFile: toPosixPath(path.relative(workspace, path.join(directoryPath, fileName))),
-        };
-    });
+    const variants = (await findVariants(directoryPath, config.prefix)).flatMap(({ fileName, pages }) => (
+        [false, true].map((includePhoto) => {
+            const slug = `${pages}-page${includePhoto ? "-photo" : ""}`;
+            return {
+                includePhoto,
+                locale: config.locale,
+                pages,
+                slug,
+                route: `/${config.locale}/pdf/${slug}/`,
+                fileName: `${pdfFilePrefix}-${config.locale}-${slug}.pdf`,
+                importPath: `./${directoryName}/${path.basename(fileName, ".ts")}`,
+                sourceFile: toPosixPath(path.relative(workspace, path.join(directoryPath, fileName))),
+            };
+        })
+    ));
 
     return { language, variants };
 };

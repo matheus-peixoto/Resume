@@ -22,6 +22,11 @@ export const COMMAND_MENU_EN = {
         saveError: "The PDF could not be saved. Please try again.",
         onePage: "1 Page",
         multiplePages: "{pages} Pages",
+        pagesSection: "Pages",
+        profilePhotoSection: "Profile photo",
+        withPhoto: "With photo",
+        withoutPhoto: "Without photo",
+        continue: "Continue",
     },
     theme: {
         light: "Light",

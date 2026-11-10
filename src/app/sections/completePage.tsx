@@ -16,7 +16,7 @@ export function CompletePage({ resume, locale }: CompletePageProps) {
     }));
     const pdfOptions = pdfResumeMetadata
         .filter((definition) => definition.locale === locale)
-        .map(({ fileName, pages }) => ({ fileName, pages }));
+        .map(({ fileName, includePhoto, pages }) => ({ fileName, includePhoto, pages }));
     const links = resume.contact.socials.filter(({ name }) => {
         const normalizedName = name.toLocaleLowerCase();
         return !["website", "personal website", "portfolio", "site", "site pessoal"].includes(normalizedName);
