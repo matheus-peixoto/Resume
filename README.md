@@ -47,7 +47,7 @@ Then open http://localhost:3000 in your browser.
 
 ## Develop and generate PDFs
 
-The project generates deterministic A4 PDFs with `0.225in` margins, selectable text, and validated page counts. The available languages and page counts are discovered from `src/data`; they are not hard-coded in the PDF script.
+The project generates deterministic A4 PDFs with `0.225in` margins, selectable text, and validated page counts. The available languages and page counts are discovered from `src/data`; they are not hard-coded in the PDF script. Every authored page-count variant produces both a no-photo PDF (the default) and an optional profile-photo PDF.
 
 1. Install Chromium once:
    ```bash
@@ -59,7 +59,7 @@ The project generates deterministic A4 PDFs with `0.225in` margins, selectable t
    pnpm pdf:dev
    ```
 
-   Open http://localhost:4173. The command initially creates every downloadable PDF in `public/pdfs`, then watches the resume data and print-related components. Editing a numbered file such as `ResumeEN1.ts` regenerates that PDF automatically, so there is no need to run `pdf:generate` after every edit. In watch mode a page-count mismatch is reported as a warning and the PDF is still written so you can inspect it.
+   Open http://localhost:4173. The command initially creates every downloadable PDF in `public/pdfs`, then watches the resume data and print-related components. Editing a numbered file such as `ResumeEN1.ts` regenerates its photo and no-photo PDFs automatically, so there is no need to run `pdf:generate` after every edit. In watch mode a page-count mismatch is reported as a warning and the PDF is still written so you can inspect it.
 
 3. Generate and strictly validate release candidates:
    ```bash
@@ -90,13 +90,15 @@ The project generates deterministic A4 PDFs with `0.225in` margins, selectable t
    These are independent authored resumes rather than filters that hide sections from one shared profile.
 
 3. **Add another page-count variant**
-   Copy an existing numbered file in the appropriate language folder and use the page count in its name. For example, `ResumeEN3.ts` automatically creates the `/en/pdf/3-page/` route, command-menu PDF option, output filename, and three-page validation target. Run `pnpm resume:discover` if you want to refresh the generated registry immediately; the normal dev, build, and PDF commands do this automatically.
+   Copy an existing numbered file in the appropriate language folder and use the page count in its name. For example, `ResumeEN3.ts` automatically creates the no-photo `/en/pdf/3-page/` route and photo-enabled `/en/pdf/3-page-photo/` route, their command-menu options, output filenames, and three-page validation targets. Run `pnpm resume:discover` if you want to refresh the generated registry immediately; the normal dev, build, and PDF commands do this automatically.
 
 4. **Add another language**
    Create a `src/data/ResumeXX` folder following an existing folder. Its `resume.config.json` declares the locale, filename prefix, and normal website file. Add one or more numbered files using that prefix. The discovery script then creates all PDF routes and metadata automatically. A normal website route for the locale still needs a corresponding page under `src/app`.
 
 5. **Translate the command menu**
    Add a command-menu translation file beside the language's resume data, following `CommandMenuEN.ts` or `CommandMenuPTBR.ts`. Import that object into the language's normal website resume and assign it to the optional `commandMenu` property. Languages without their own menu translation use English as the fallback.
+
+The root command-menu search includes nested PDF variants, themes, languages, and links. Search is case-insensitive and ignores accents, so users can jump directly to a specific result without first opening its submenu.
 
 The generated registry, metadata, and manifest in `src/data` should not be edited manually. Page size and print margins are defined in `src/app/globals.css`.
 
